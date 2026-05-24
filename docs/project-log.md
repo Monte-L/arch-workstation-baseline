@@ -316,3 +316,20 @@ No kill switch rules have been applied yet.
 A local emergency recovery command is now available before kill switch rules are tested.
 
 No kill switch rules were applied.
+
+## VPN Kill Switch Dry-Run Helper
+
+### Completed
+
+- Created a local dry-run helper for the planned VPN kill switch.
+- The helper detects the local NetworkManager WireGuard profile.
+- The helper detects the VPN endpoint port.
+- The helper redacts the endpoint from output.
+- The helper prints the intended UFW model.
+- The helper does not apply any firewall rules.
+
+### Result
+
+The project now has a preview step before any restrictive firewall rules are tested.
+
+No kill switch rules were applied.

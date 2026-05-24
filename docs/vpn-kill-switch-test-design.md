@@ -85,3 +85,32 @@ The emergency rollback should restore:
 Test design drafted.
 
 Rules not applied yet.
+
+## Local Dry-Run Helper
+
+A local dry-run helper was created to preview the intended VPN kill switch rule model before applying any firewall changes.
+
+Local helper:
+
+    ~/.local/bin/vpn-killswitch-dryrun
+
+The helper detects the local NetworkManager WireGuard profile and endpoint information, but redacts the endpoint from its output.
+
+It does not apply firewall rules.
+
+The helper previews the following model:
+
+| Step | Planned Action |
+|---|---|
+| 1 | Keep incoming denied |
+| 2 | Change outgoing default to deny |
+| 3 | Keep routed denied |
+| 4 | Allow outbound traffic through the VPN interface |
+| 5 | Allow outbound traffic to the VPN endpoint port |
+| 6 | Keep emergency rollback available |
+
+Emergency rollback remains:
+
+    ufw-baseline-restore --apply
+
+No kill switch rules have been applied yet.
