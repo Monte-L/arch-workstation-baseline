@@ -394,3 +394,23 @@ External DNS leak testing passed in sanitized form.
 The current DNS policy appears to work in both VPN-on and VPN-off states.
 
 Raw IPs, resolver addresses, locations, and ISP names were not published.
+
+## Backup and Restore Strategy
+
+### Completed
+
+- Started Phase 2E for backup and restore planning.
+- Created backup and restore strategy document.
+- Created restore checklist.
+- Collected private backup inventory snapshot.
+- Defined what should be backed up.
+- Defined what must not be published.
+- Defined initial restore priorities.
+
+### Result
+
+Backup planning has started.
+
+No full backup has been executed yet.
+
+The next step is to choose a backup destination and test a small restore.

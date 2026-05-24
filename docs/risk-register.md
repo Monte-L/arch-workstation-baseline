@@ -184,3 +184,11 @@ The next priorities are:
 | R-064 | Local ISP DNS may appear during VPN-off state | Medium | Mitigated | External DNS leak test did not show local ISP DNS while VPN was inactive. |
 | R-065 | Local ISP DNS may appear during VPN-on state | High | Mitigated | External DNS leak test did not show local ISP DNS while VPN was active. |
 | R-066 | Browser DNS behavior may differ from system DNS | Low | Open | Future testing should review browser DNS-over-HTTPS settings if unexpected DNS providers appear. |
+
+## Backup and Restore Planning Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-067 | No tested backup strategy before persistent hardening | High | Open | Backup strategy was drafted, but no full backup or restore test has been completed yet. |
+| R-068 | Private configuration may be backed up insecurely | High | Open | VPN, SSH, browser, and token data must only be stored in private/encrypted backups. |
+| R-069 | Restore process not yet tested | Medium | Open | A restore checklist was created, but restore testing is still required. |

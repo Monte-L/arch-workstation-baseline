@@ -387,3 +387,21 @@ Current assessment:
 The DNS policy passed the external leak test.
 
 Future DNS leak tests should be repeated after any persistent kill switch implementation or when adding new Wi-Fi/Ethernet profiles.
+
+## Phase 2E Started - Backup and Restore Strategy
+
+Backup and restore planning has started before enabling any persistent kill switch.
+
+Completed:
+
+| Item | Status |
+|---|---|
+| Backup strategy document | created |
+| Restore checklist | created |
+| Private backup inventory snapshot | collected |
+| Full backup execution | pending |
+| Restore test | pending |
+
+Recommended next step:
+
+Choose a backup destination and perform a small restore test before enabling persistent firewall leak protection.
