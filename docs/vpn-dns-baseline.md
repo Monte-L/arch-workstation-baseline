@@ -108,3 +108,29 @@ A future VPN kill switch should enforce:
 5. Separate testing for VPN-on and VPN-off states.
 
 Status: open hardening item.
+
+## DNS Behavior Review - VPN Active
+
+A VPN-active DNS behavior review was performed.
+
+Findings:
+
+| Item | Result |
+|---|---|
+| VPN interface | protonch |
+| Public route decision | via protonch |
+| VPN routing table | 51820 |
+| systemd-resolved | disabled / inactive |
+| resolv.conf generator | resolvconf |
+| Quad9 direct detection | detected |
+
+This improves the earlier DNS baseline.
+
+Earlier checks did not detect Quad9 directly in /etc/resolv.conf. During the VPN-active test, Quad9 was detected directly.
+
+Current interpretation:
+
+- VPN routing works while ProtonVPN is active.
+- Quad9 DNS is visible in the active resolver configuration while VPN is active.
+- DNS leak protection still requires external validation.
+- VPN-off DNS behavior still needs to be reviewed.

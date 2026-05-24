@@ -98,3 +98,11 @@ The next priorities are:
 | R-033 | Unnecessary debug packages installed | Low | Mitigated | Debug packages such as yay-debug, wireguard-dkms, and eww-debug were removed or confirmed absent where not required. |
 | R-034 | Go package appears as orphan | Low | Documented | Go is installed but not required by another package. It is kept for now as a possible development/build tool. |
 | R-035 | Tor Browser alpha package remains installed | Low | Open | tor-browser-alpha-bin remains installed and should be reviewed later against a stable Tor Browser option. |
+
+## DNS Behavior Review Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-036 | Quad9 not detected during earlier DNS baseline | Medium | Partially mitigated | Quad9 was detected directly in /etc/resolv.conf during VPN-active testing. VPN-off behavior still requires review. |
+| R-037 | DNS leak protection not externally validated | Medium | Open | VPN-active routing and Quad9 detection are positive signs, but an external DNS leak test is still required. |
+| R-038 | DNS behavior may differ between VPN-on and VPN-off states | Medium | Open | Earlier and later checks showed different resolver behavior. Both states must be documented separately. |
