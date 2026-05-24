@@ -117,3 +117,35 @@ The main follow-up items are:
 3. Review whether tor-browser-alpha-bin should be replaced by a stable Tor Browser package.
 4. Review whether wireguard-dkms is necessary.
 5. Review whether NetworkManager-wait-online.service is needed.
+
+## Service Hardening Actions
+
+After reviewing enabled and running services, Docker was changed from always-on to manual start.
+
+| Service | Previous State | Current State | Action |
+|---|---|---|---|
+| docker.service | enabled / active | disabled / inactive | Disabled at boot and stopped |
+| docker.socket | active trigger | disabled / inactive | Disabled to prevent socket activation |
+| containerd.service | active through Docker | disabled / inactive | Stopped after Docker cleanup |
+
+## Docker Manual Start Model
+
+Docker remains installed for infrastructure labs and development work.
+
+It no longer starts automatically at boot.
+
+To start Docker when needed:
+
+sudo systemctl start docker.service
+
+To stop Docker after use:
+
+sudo systemctl stop docker.service
+
+This reduces the workstation's always-on service footprint while preserving Docker functionality for lab work.
+
+## Container Runtime Follow-Up
+
+The previous localhost-only containerd listener is no longer present after stopping Docker and containerd.
+
+This reduces unnecessary local listening services during normal workstation use.

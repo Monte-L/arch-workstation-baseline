@@ -188,3 +188,16 @@ SSH is not running and is not exposed through the firewall, while Fail2ban is al
 No immediate change is required.
 
 If SSH is introduced in the future, it should be configured securely before opening any firewall rule.
+
+## Post-Docker Cleanup Socket Review
+
+After Docker was disabled from autostart and containerd was stopped, the previous localhost-only containerd listener was no longer observed.
+
+| Item | Result |
+|---|---|
+| docker.service | disabled / inactive |
+| docker.socket | disabled / inactive |
+| containerd.service | disabled / inactive |
+| containerd localhost listener | no longer observed |
+
+This reduces the number of listening services during normal workstation use.

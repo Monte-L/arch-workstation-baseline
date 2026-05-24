@@ -74,3 +74,11 @@ The next priorities are:
 |---|---|---|---|---|
 | R-025 | Outbound traffic is allowed before VPN activation | Medium | Open | UFW currently allows outgoing traffic by default. This means traffic may leave through Wi-Fi before ProtonVPN is active. A VPN kill switch should be evaluated. |
 | R-026 | VPN autostart may fail if Wi-Fi is not ready | Low | Open | WireGuard can be started automatically, but on a laptop using Wi-Fi it may require NetworkManager integration or dispatcher scripts. |
+
+## Service Hardening Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-027 | Docker service running continuously | Medium | Mitigated | docker.service was disabled and stopped. Docker can be started manually when needed. |
+| R-028 | Docker socket could trigger Docker automatically | Medium | Mitigated | docker.socket was disabled and stopped to prevent socket activation. |
+| R-029 | containerd listener remained active after Docker service stop | Low | Mitigated | containerd.service was stopped and is now inactive during normal workstation use. |

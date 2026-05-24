@@ -54,3 +54,19 @@ The workstation now has a documented initial baseline with sanitized public dotf
 4. Review enabled systemd services.
 5. Prepare local Git commit.
 6. Review repository before any public upload.
+
+## Service Hardening Update
+
+### Completed
+
+- Disabled docker.service from starting automatically.
+- Disabled docker.socket to prevent automatic socket activation.
+- Stopped containerd.service after Docker cleanup.
+- Confirmed previous containerd localhost listener was no longer observed.
+- Preserved Docker as an installed tool for manual use during infrastructure labs.
+
+### Result
+
+Docker is now installed but not always running.
+
+This reduces the default workstation service footprint while keeping Docker available for lab and development work.
