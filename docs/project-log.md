@@ -187,3 +187,23 @@ The preferred long-term design is NetworkManager-managed WireGuard with explicit
 ### Result
 
 The shell configuration is now cleaner, more reliable after boot, and safer for public documentation.
+
+## Post-Reboot Validation Completed
+
+### Completed
+
+- Rebooted the workstation after service hardening.
+- Confirmed UFW remained active.
+- Confirmed Fail2ban remained active.
+- Confirmed sshd remained inactive.
+- Confirmed Docker services remained disabled and inactive.
+- Confirmed containerd remained disabled and inactive.
+- Confirmed NetworkManager-wait-online remained disabled and inactive.
+- Confirmed VPN routing worked after vpn-on-safe workaround.
+- Confirmed Quad9 DNS was detected after VPN activation.
+
+### Result
+
+The post-reboot validation passed.
+
+The workstation retained the intended baseline state after reboot.

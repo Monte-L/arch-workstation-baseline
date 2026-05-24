@@ -71,6 +71,7 @@ It is a personal learning and portfolio project focused on understanding, docume
 - docs/network-baseline.md
 - docs/vpn-dns-baseline.md
 - docs/dns-behavior-review.md
+- docs/post-reboot-validation.md
 - docs/firewall-fail2ban.md
 - docs/package-service-inventory.md
 - docs/enabled-services-review.md
