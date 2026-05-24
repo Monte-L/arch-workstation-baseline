@@ -82,3 +82,11 @@ The next priorities are:
 | R-027 | Docker service running continuously | Medium | Mitigated | docker.service was disabled and stopped. Docker can be started manually when needed. |
 | R-028 | Docker socket could trigger Docker automatically | Medium | Mitigated | docker.socket was disabled and stopped to prevent socket activation. |
 | R-029 | containerd listener remained active after Docker service stop | Low | Mitigated | containerd.service was stopped and is now inactive during normal workstation use. |
+
+## Enabled Services Review Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-030 | Unnecessary network-facing services enabled at boot | Medium | Mitigated | No unnecessary network-facing services such as Docker, SSH, CUPS, Avahi, Samba, or Bluetooth were observed as enabled during the review. |
+| R-031 | SSH-related local Unix socket observed | Low | Documented | An sshd-related local Unix socket was observed, but sshd.service is disabled/inactive and SSH is not exposed through UFW. |
+| R-032 | Enabled services should be rechecked after reboot | Low | Open | A post-reboot validation should confirm Docker, containerd, and NetworkManager-wait-online remain disabled/inactive. |

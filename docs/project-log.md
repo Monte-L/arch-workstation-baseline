@@ -91,3 +91,21 @@ A post-hardening services snapshot was collected after Docker and containerd cle
 Docker remains installed and can be started manually when needed for infrastructure labs.
 
 This keeps the workstation lighter during normal use while preserving lab functionality.
+
+## Enabled Services Full Review
+
+### Completed
+
+- Reviewed enabled systemd unit files.
+- Reviewed enabled sockets.
+- Reviewed enabled timers.
+- Reviewed selected running services.
+- Reviewed active timers.
+- Confirmed no enabled Docker, containerd, SSH, CUPS, Avahi, Samba, Bluetooth, or systemd-resolved services were observed.
+- Documented sshd-related local Unix socket as not equivalent to network-exposed SSH.
+
+### Result
+
+The enabled service set is minimal and appropriate for a personal Arch Linux workstation.
+
+No obvious unnecessary network-facing services were found enabled.
