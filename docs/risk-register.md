@@ -176,3 +176,11 @@ The next priorities are:
 | R-061 | Ordinary outbound traffic leaks when VPN disconnects | High | Partially mitigated | Manual UFW kill switch test successfully blocked ordinary outbound traffic when VPN was disconnected. |
 | R-062 | Kill switch not persistent yet | Medium | Open | Test rules were rolled back after validation. Persistent behavior still requires design and reboot testing. |
 | R-063 | Real VPN endpoint may appear in local firewall output | Medium | Documented | Raw outputs must remain private and must not be published. Public documentation uses sanitized placeholders. |
+
+## External DNS Leak Test Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-064 | Local ISP DNS may appear during VPN-off state | Medium | Mitigated | External DNS leak test did not show local ISP DNS while VPN was inactive. |
+| R-065 | Local ISP DNS may appear during VPN-on state | High | Mitigated | External DNS leak test did not show local ISP DNS while VPN was active. |
+| R-066 | Browser DNS behavior may differ from system DNS | Low | Open | Future testing should review browser DNS-over-HTTPS settings if unexpected DNS providers appear. |

@@ -370,3 +370,20 @@ Current status:
 Next recommended phase:
 
 External DNS leak testing before deciding whether to make kill switch behavior persistent.
+
+## Phase 2D Update - External DNS Leak Testing
+
+External DNS leak testing was completed in sanitized form.
+
+Results:
+
+| State | Result |
+|---|---|
+| VPN inactive | local ISP detected as public IP organization, but local ISP DNS was not observed |
+| VPN active | public IP organization changed and local ISP DNS was not observed |
+
+Current assessment:
+
+The DNS policy passed the external leak test.
+
+Future DNS leak tests should be repeated after any persistent kill switch implementation or when adding new Wi-Fi/Ethernet profiles.

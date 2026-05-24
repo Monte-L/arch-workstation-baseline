@@ -372,3 +372,25 @@ The local helper workflow is now documented.
 NetworkManager remains the preferred VPN control method.
 
 The UFW kill switch test passed, but persistent kill switch enforcement is not enabled yet.
+
+## External DNS Leak Testing
+
+### Completed
+
+- Checked public IP organization with VPN inactive.
+- Confirmed VPN-inactive public IP organization matched the local ISP privately.
+- Ran external DNS leak test with VPN inactive.
+- Confirmed DNS provider shown externally differed from the local ISP.
+- Checked public IP organization with VPN active.
+- Confirmed VPN-active public IP organization changed.
+- Ran external DNS leak test with VPN active.
+- Confirmed external DNS behavior changed with VPN active.
+- Confirmed no local ISP DNS was observed in the external DNS leak test.
+
+### Result
+
+External DNS leak testing passed in sanitized form.
+
+The current DNS policy appears to work in both VPN-on and VPN-off states.
+
+Raw IPs, resolver addresses, locations, and ISP names were not published.
