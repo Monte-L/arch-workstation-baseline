@@ -71,8 +71,10 @@ It is a personal learning and portfolio project focused on understanding, docume
 - docs/network-baseline.md
 - docs/vpn-dns-baseline.md
 - docs/firewall-fail2ban.md
+- docs/package-service-inventory.md
 - docs/dotfiles-guide.md
 - docs/risk-register.md
+- docs/project-log.md
 
 ## Current Status
 

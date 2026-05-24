@@ -56,3 +56,14 @@ The next priorities are:
 |---|---|---|---|---|
 | R-017 | SSH service exposure | Medium | Mitigated | sshd is disabled and inactive, and UFW has no inbound SSH allow rule. |
 | R-018 | Fail2ban sshd jail active while SSH is inactive | Low | Documented | This is not a current exposure. The jail is ready if SSH is enabled later. |
+
+## Package and Service Review Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-019 | Docker is enabled and running by default | Medium | Open | Docker is useful for lab and development work, but increases local attack surface. Decide whether it should start at boot or be started manually. |
+| R-020 | AUR package usage requires manual trust review | Medium | Open | The system has 11 foreign/AUR packages. New AUR packages should be reviewed before installation. |
+| R-021 | tor-browser-alpha-bin is alpha software | Low | Open | Alpha software may be less stable than a standard release. Review whether alpha build is necessary. |
+| R-022 | yay-debug may be unnecessary | Low | Open | Debug package should be removed if not needed. |
+| R-023 | wireguard-dkms may be unnecessary | Low | Open | Review whether DKMS package is required with the current kernel and WireGuard setup. |
+| R-024 | NetworkManager-wait-online.service may delay boot | Low | Open | Review whether this service is needed for the workstation workflow. |
