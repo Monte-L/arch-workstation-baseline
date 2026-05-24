@@ -282,3 +282,22 @@ This improves the baseline, but does not replace VPN kill switch or external DNS
 No kill switch rules were applied yet.
 
 The project is now ready for private facts collection and rollback planning.
+
+## VPN Kill Switch Facts Collection
+
+### Completed
+
+- Collected private kill switch facts.
+- Identified Wi-Fi, Ethernet, and VPN interface roles.
+- Confirmed VPN route through the NetworkManager WireGuard interface.
+- Confirmed Quad9 DNS was active during VPN-on state.
+- Confirmed UFW is active with deny incoming and allow outgoing.
+- Confirmed VPN endpoint information is available privately.
+- Created sanitized public facts summary.
+- Created initial test-only kill switch design.
+
+### Result
+
+The system has enough information to design a manual kill switch test.
+
+No kill switch rules have been applied yet.

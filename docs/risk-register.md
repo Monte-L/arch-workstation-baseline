@@ -153,3 +153,11 @@ The next priorities are:
 | R-053 | Incorrect kill switch rules could break connectivity | High | Open | No rules should be applied before rollback commands and test plan are prepared. |
 | R-054 | VPN endpoint information is sensitive | Medium | Open | Endpoint details are required for implementation but must remain private and excluded from public documentation. |
 | R-055 | Kill switch persistence may break boot connectivity if misconfigured | High | Open | Initial implementation should be manual/test-only before enabling persistence. |
+
+## VPN Kill Switch Facts Collection Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-056 | Outgoing firewall policy still allows non-VPN traffic | Medium | Open | UFW currently allows outgoing traffic by default. Kill switch design is required to prevent fallback leaks. |
+| R-057 | Kill switch requires private endpoint details | Medium | Documented | Endpoint information was collected privately and must not be published. |
+| R-058 | UFW may be limited for advanced VPN leak protection | Medium | Open | UFW-based testing is planned first. nftables may be evaluated if UFW is insufficient. |
