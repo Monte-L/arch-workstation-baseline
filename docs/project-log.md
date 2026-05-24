@@ -70,3 +70,24 @@ The workstation now has a documented initial baseline with sanitized public dotf
 Docker is now installed but not always running.
 
 This reduces the default workstation service footprint while keeping Docker available for lab and development work.
+
+## Post-Hardening Services Snapshot
+
+A post-hardening services snapshot was collected after Docker and containerd cleanup.
+
+### Expected State
+
+- docker.service disabled and inactive
+- docker.socket disabled and inactive
+- containerd.service disabled and inactive
+- WireGuard tools still available
+- UFW still enabled
+- Fail2ban still enabled
+- NetworkManager still enabled
+- No unnecessary Docker/containerd listener during normal workstation use
+
+### Notes
+
+Docker remains installed and can be started manually when needed for infrastructure labs.
+
+This keeps the workstation lighter during normal use while preserving lab functionality.
