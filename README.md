@@ -159,6 +159,8 @@ A temporary VPN startup workaround is documented. The long-term preferred direct
 | docs/restic-backup-policy.md | Restic include/exclude backup policy |
 | docs/restic-selected-directory-backup-test.md | Selected-directory encrypted backup test using Restic excludes |
 | docs/restic-password-strategy.md | Restic password handling and recovery strategy |
+| backup/restic-private-include-template.txt | Public template for private backup include planning |
+| docs/private-backup-planning.md | Planning for future private encrypted backups |
 | backup/restic-excludes.txt | Restic exclude policy template |
 | docs/backup-restore-strategy.md | Backup and restore strategy |
 | docs/vpn-kill-switch-facts-summary.md | Sanitized facts for VPN kill switch design |

@@ -506,3 +506,22 @@ Current decision:
 Next recommended step:
 
 Choose the actual password storage method, then create a reviewed include list for selected private data.
+
+## Phase 2E Update - Private Backup Planning
+
+Private backup planning was started.
+
+Completed:
+
+| Item | Status |
+|---|---|
+| Private backup planning document | created |
+| Public include template | created |
+| Local-only include candidate list | created |
+| Full home backup | rejected for initial scope |
+| Browser profiles | excluded by default |
+| VPN/SSH private material | special handling required |
+
+Next recommended step:
+
+Choose a small reviewed private directory and perform a controlled encrypted backup/restore test.

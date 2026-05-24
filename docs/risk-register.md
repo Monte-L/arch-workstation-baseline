@@ -240,3 +240,12 @@ The next priorities are:
 | R-085 | Restic password stored with backup media | High | Mitigated | Password must not be stored on the same USB backup drive. |
 | R-086 | Restic password not recoverable | High | Partially mitigated | Password manager plus offline written recovery copy selected as the storage direction. |
 | R-087 | Password accidentally documented publicly | High | Mitigated | Repository records only the storage strategy, not the password. |
+
+## Private Backup Planning Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-088 | Full home backup may include sensitive data unintentionally | High | Mitigated | Full home backup is explicitly excluded from the initial private backup plan. |
+| R-089 | Browser profiles may expose sessions and tokens | High | Mitigated | Browser profiles are excluded by default. |
+| R-090 | VPN or SSH private material may be backed up accidentally | High | Partially mitigated | These categories require special handling and are excluded by default. |
+| R-091 | Private include list may expose local paths if committed | Medium | Mitigated | Real include candidates are stored under private/, which is ignored by Git. |

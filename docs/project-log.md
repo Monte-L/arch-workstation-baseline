@@ -520,3 +520,21 @@ Sensitive backup execution is intentionally delayed until password storage and r
 ### Result
 
 Sensitive backups remain blocked until the real Restic password is stored safely and recovery access is confirmed.
+
+## Private Backup Planning
+
+### Completed
+
+- Created private backup planning document.
+- Defined conservative private backup categories.
+- Marked browser profiles, VPN configs, SSH private keys, tokens, and raw outputs as excluded by default.
+- Created a local-only private include candidate list under private/.
+- Created a public include-list template without real private paths.
+
+### Result
+
+Private backup planning has started.
+
+No sensitive backup has been executed yet.
+
+The next step is to choose a small reviewed private path for a controlled encrypted backup test.

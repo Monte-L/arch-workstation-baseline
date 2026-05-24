@@ -1,0 +1,22 @@
+# Restic Private Include Template
+#
+# Public template only.
+# Do not put real private paths, usernames, secrets, or machine-specific data here.
+#
+# Use this as a model for a local-only include list stored under private/.
+#
+# Example categories:
+#
+# selected-documents/
+# selected-notes/
+# selected-reviewed-project/
+# selected-reviewed-dotfiles/
+#
+# Exclude by default:
+#
+# browser-profiles/
+# ssh-private-keys/
+# vpn-private-configs/
+# token-files/
+# password-files/
+# raw-command-outputs/
