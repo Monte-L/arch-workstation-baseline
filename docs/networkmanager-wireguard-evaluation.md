@@ -102,3 +102,31 @@ After post-reboot validation, evaluate:
 3. Defining final DNS policy.
 4. Planning VPN kill switch / leak protection.
 5. Performing external DNS leak testing.
+
+## Post-Reboot Validation
+
+A post-reboot validation was performed after importing and testing the NetworkManager WireGuard profile.
+
+For public documentation, the local VPN interface/profile name is represented as vpn0.
+
+| Check | Result |
+|---|---|
+| VPN inactive after boot | confirmed |
+| NetworkManager VPN helper | worked after reboot |
+| VPN route after activation | via vpn0 |
+| NetworkManager routing table | 52254 |
+| Quad9 DNS after activation | detected |
+| UFW after reboot | active |
+| Fail2ban after reboot | active |
+| Docker after reboot | inactive |
+| containerd after reboot | inactive |
+| SSH after reboot | inactive |
+| NetworkManager-wait-online | disabled |
+
+## Updated Decision
+
+NetworkManager-managed WireGuard passed manual activation, deactivation, and post-reboot validation.
+
+The NetworkManager workflow is now considered the preferred VPN control method.
+
+The previous wg-quick plus resolvconf helper remains available as fallback until the final VPN/DNS policy and kill switch are implemented.

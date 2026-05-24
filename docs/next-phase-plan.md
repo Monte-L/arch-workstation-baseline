@@ -284,3 +284,23 @@ Current decision:
 NetworkManager-managed WireGuard is viable, but still requires post-reboot validation before replacing the current fallback workflow.
 
 The wg-quick plus vpn-on-safe method remains available as fallback.
+
+## Phase 2A Post-Reboot Result
+
+NetworkManager-managed WireGuard passed post-reboot validation.
+
+Result:
+
+| Item | Status |
+|---|---|
+| Manual activation before reboot | passed |
+| Manual deactivation before reboot | passed |
+| Activation after reboot | passed |
+| VPN route after reboot | passed |
+| Quad9 DNS after reboot | passed |
+
+Decision:
+
+NetworkManager is now the preferred VPN control method.
+
+The old wg-quick/resolvconf workflow remains as fallback while DNS policy and kill switch planning continue.

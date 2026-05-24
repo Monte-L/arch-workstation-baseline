@@ -129,3 +129,10 @@ The next priorities are:
 | R-044 | wg-quick and resolvconf workflow may be fragile after reboot | Medium | Partially mitigated | NetworkManager-managed WireGuard was tested successfully and is now a viable replacement candidate. |
 | R-045 | NetworkManager WireGuard profile not yet post-reboot validated | Medium | Open | Manual NetworkManager activation worked, but post-reboot validation is still required before making it the primary workflow. |
 | R-046 | VPN autoconnect behavior not finalized | Medium | Open | Autoconnect remains disabled during testing. Final behavior should be decided after DNS policy and kill switch planning. |
+
+## NetworkManager WireGuard Post-Reboot Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-047 | NetworkManager WireGuard may fail after reboot | Medium | Mitigated | Post-reboot validation confirmed NetworkManager can activate the WireGuard profile successfully. |
+| R-048 | Temporary wg-quick/resolvconf workaround still exists | Low | Documented | The workaround remains as fallback, but NetworkManager is now the preferred VPN control method. |

@@ -227,3 +227,21 @@ The workstation retained the intended baseline state after reboot.
 NetworkManager-managed WireGuard is viable.
 
 The next required step is post-reboot validation before making NetworkManager the primary VPN workflow.
+
+## NetworkManager WireGuard Post-Reboot Validation
+
+### Completed
+
+- Rebooted after NetworkManager WireGuard import and testing.
+- Confirmed VPN was inactive before manual activation.
+- Confirmed vpn-nm-on successfully activated the NetworkManager WireGuard profile.
+- Confirmed public route decision through the VPN interface.
+- Confirmed Quad9 DNS was detected after activation.
+- Confirmed UFW and Fail2ban remained active.
+- Confirmed Docker, containerd, and SSH remained inactive.
+
+### Result
+
+NetworkManager-managed WireGuard passed post-reboot validation.
+
+NetworkManager is now the preferred VPN control method, while wg-quick plus vpn-on-safe remains available as fallback.
