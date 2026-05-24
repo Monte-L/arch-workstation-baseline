@@ -144,6 +144,7 @@ A temporary VPN startup workaround is documented. The long-term preferred direct
 | docs/risk-register.md | Security and operational risk register |
 | docs/project-log.md | Project progress log |
 | docs/repository-review.md | Pre-publication repository safety review |
+| docs/next-phase-plan.md | Future hardening roadmap and next phase plan |
 
 ## Dotfiles
 
