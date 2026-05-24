@@ -88,3 +88,23 @@ The following information must not be published:
 - full routing table
 - full WireGuard configuration
 - raw VPN status output
+
+## VPN Kill Switch Status
+
+At the current baseline stage, the VPN works when active, and public IPv4 routing was confirmed through the ProtonVPN WireGuard interface.
+
+However, the system does not yet enforce VPN-only outbound traffic during boot.
+
+Current outbound firewall policy allows outgoing traffic by default. This means the workstation may be able to reach the internet through the regular Wi-Fi connection before the VPN interface is active.
+
+This is not a failure of the current VPN setup. It is a separate hardening layer that has not yet been implemented.
+
+A future VPN kill switch should enforce:
+
+1. No normal outbound traffic before VPN activation.
+2. Outbound traffic allowed only to the VPN endpoint before tunnel establishment.
+3. Normal internet traffic allowed only through the VPN interface.
+4. Safe rollback commands in case connectivity breaks.
+5. Separate testing for VPN-on and VPN-off states.
+
+Status: open hardening item.

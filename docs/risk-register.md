@@ -67,3 +67,10 @@ The next priorities are:
 | R-022 | yay-debug may be unnecessary | Low | Open | Debug package should be removed if not needed. |
 | R-023 | wireguard-dkms may be unnecessary | Low | Open | Review whether DKMS package is required with the current kernel and WireGuard setup. |
 | R-024 | NetworkManager-wait-online.service may delay boot | Low | Open | Review whether this service is needed for the workstation workflow. |
+
+## VPN Kill Switch Review
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-025 | Outbound traffic is allowed before VPN activation | Medium | Open | UFW currently allows outgoing traffic by default. This means traffic may leave through Wi-Fi before ProtonVPN is active. A VPN kill switch should be evaluated. |
+| R-026 | VPN autostart may fail if Wi-Fi is not ready | Low | Open | WireGuard can be started automatically, but on a laptop using Wi-Fi it may require NetworkManager integration or dispatcher scripts. |
