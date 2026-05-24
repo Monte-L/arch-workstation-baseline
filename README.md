@@ -213,6 +213,10 @@ Planned future work includes:
 
 ## Project Status
 
-Initial workstation baseline completed locally.
+Initial workstation baseline completed and published.
 
-The project is currently in the repository review and presentation polish phase.
+The repository has passed the local safety review and is now available as a public portfolio project.
+
+Current phase: next-phase planning.
+
+Upcoming work will focus on NetworkManager-managed WireGuard evaluation, DNS policy, VPN kill switch planning, external DNS leak testing, backup and restore strategy, and optional SSH hardening.
