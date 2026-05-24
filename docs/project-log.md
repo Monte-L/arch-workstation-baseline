@@ -352,3 +352,23 @@ The manual kill switch test was successful.
 The test confirmed that the planned UFW model can block ordinary Wi-Fi fallback traffic when the VPN is inactive.
 
 The kill switch is not persistent yet.
+
+## Local Helper Scripts Documentation
+
+### Completed
+
+- Documented local VPN helper scripts.
+- Documented NetworkManager VPN helpers.
+- Documented legacy wg-quick fallback helpers.
+- Documented UFW rollback helper.
+- Documented kill switch dry-run helper.
+- Documented endpoint resolution dry-run helper.
+- Documented temporary kill switch test helper.
+
+### Result
+
+The local helper workflow is now documented.
+
+NetworkManager remains the preferred VPN control method.
+
+The UFW kill switch test passed, but persistent kill switch enforcement is not enabled yet.

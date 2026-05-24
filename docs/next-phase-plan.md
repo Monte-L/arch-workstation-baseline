@@ -350,3 +350,23 @@ The next implementation steps are:
 The preferred long-term direction remains:
 
 NetworkManager-managed WireGuard plus DNS policy plus firewall-based leak protection.
+
+## Local Helper Scripts Status
+
+Local helper scripts were documented after the first successful manual VPN kill switch test.
+
+Current status:
+
+| Helper Area | Status |
+|---|---|
+| NetworkManager VPN helpers | available |
+| wg-quick fallback helpers | available |
+| UFW rollback helper | available |
+| Kill switch dry-run helper | available |
+| Endpoint resolution dry-run helper | available |
+| Temporary kill switch test helper | tested |
+| Persistent kill switch | not enabled |
+
+Next recommended phase:
+
+External DNS leak testing before deciding whether to make kill switch behavior persistent.
