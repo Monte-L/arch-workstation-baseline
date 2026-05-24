@@ -155,3 +155,27 @@ Interpretation:
 - Quad9 was not detected directly in /etc/resolv.conf during the VPN-off test.
 - VPN-off DNS behavior is not equivalent to VPN-on DNS behavior.
 - This supports the need for a future VPN kill switch or DNS enforcement review.
+
+## Post-Reboot VPN Startup Workaround
+
+After reboot, the first VPN startup attempt failed due to a resolvconf-related issue.
+
+Observed behavior:
+
+| Item | Result |
+|---|---|
+| VPN startup method | wg-quick |
+| Failure area | DNS / resolvconf update |
+| Error type | resolvconf signature mismatch |
+| Result | VPN interface was removed after failed startup |
+| Temporary fix | run resolvconf update before starting WireGuard |
+
+A local helper script was created to automate the working sequence:
+
+1. update resolvconf
+2. start the WireGuard profile
+3. verify public route decision
+
+This is treated as a temporary workaround, not the final VPN architecture.
+
+The long-term preferred direction is to evaluate a NetworkManager-managed WireGuard profile with a clear DNS policy and VPN kill switch.

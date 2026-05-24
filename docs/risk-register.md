@@ -114,3 +114,10 @@ The next priorities are:
 | R-039 | VPN-off traffic routes through regular Wi-Fi | Medium | Documented | When ProtonVPN is inactive, public route decision uses the Wi-Fi interface. |
 | R-040 | Quad9 not detected during VPN-off DNS test | Medium | Open | Quad9 was detected during VPN-active testing but not during VPN-off testing. |
 | R-041 | DNS behavior depends on VPN state | Medium | Open | VPN-on and VPN-off states produce different DNS behavior. Future hardening should evaluate DNS enforcement or VPN kill switch. |
+
+## Post-Reboot VPN Startup Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-042 | VPN startup failed after reboot due to DNS/resolvconf conflict | Medium | Partially mitigated | A temporary vpn-on-safe helper was created to update resolvconf before starting WireGuard. |
+| R-043 | Current VPN startup workaround is not final architecture | Medium | Open | Long-term preferred direction is NetworkManager-managed WireGuard with DNS policy and VPN kill switch. |

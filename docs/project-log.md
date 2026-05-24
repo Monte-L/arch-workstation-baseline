@@ -147,3 +147,27 @@ VPN-active state is preferred.
 VPN-off state requires further review because normal traffic returns to Wi-Fi and Quad9 was not directly detected.
 
 Future hardening should evaluate VPN kill switch or DNS enforcement after the inventory phase is complete.
+
+## Post-Reboot VPN Validation
+
+### Finding
+
+After reboot, the first manual VPN startup attempt failed because wg-quick could not update DNS through resolvconf cleanly.
+
+Running resolvconf update before starting WireGuard allowed the VPN to connect successfully.
+
+### Temporary Action
+
+A local vpn-on-safe helper was created.
+
+The helper performs:
+
+1. resolvconf update
+2. WireGuard startup
+3. route verification
+
+### Decision
+
+This is documented as a temporary workaround.
+
+The preferred long-term design is NetworkManager-managed WireGuard with explicit DNS policy and VPN leak protection.
