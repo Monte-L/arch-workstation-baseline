@@ -207,3 +207,23 @@ The shell configuration is now cleaner, more reliable after boot, and safer for 
 The post-reboot validation passed.
 
 The workstation retained the intended baseline state after reboot.
+
+## NetworkManager WireGuard Evaluation
+
+### Completed
+
+- Reviewed NetworkManager WireGuard readiness.
+- Confirmed NetworkManager is enabled and active.
+- Confirmed wg and wg-quick remain available.
+- Imported a WireGuard profile into NetworkManager.
+- Tested manual VPN activation through NetworkManager.
+- Tested manual VPN deactivation through NetworkManager.
+- Confirmed public route decision through the VPN interface.
+- Confirmed Quad9 DNS is configured in the NetworkManager WireGuard profile.
+- Kept wg-quick plus vpn-on-safe as fallback.
+
+### Result
+
+NetworkManager-managed WireGuard is viable.
+
+The next required step is post-reboot validation before making NetworkManager the primary VPN workflow.

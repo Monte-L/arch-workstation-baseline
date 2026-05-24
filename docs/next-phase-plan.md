@@ -262,3 +262,25 @@ The recommended next order is:
 Initial baseline: completed.
 
 Next phase: planned.
+
+## Phase 2A Update - NetworkManager WireGuard Evaluation
+
+Initial NetworkManager WireGuard testing was successful.
+
+Findings:
+
+| Item | Result |
+|---|---|
+| NetworkManager WireGuard profile | imported |
+| Manual activation through NetworkManager | successful |
+| Manual deactivation through NetworkManager | successful |
+| Public route through VPN | successful |
+| Quad9 DNS in NetworkManager profile | configured |
+| IPv6 in VPN profile | disabled |
+| Autoconnect | disabled during testing |
+
+Current decision:
+
+NetworkManager-managed WireGuard is viable, but still requires post-reboot validation before replacing the current fallback workflow.
+
+The wg-quick plus vpn-on-safe method remains available as fallback.

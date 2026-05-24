@@ -121,3 +121,11 @@ The next priorities are:
 |---|---|---|---|---|
 | R-042 | VPN startup failed after reboot due to DNS/resolvconf conflict | Medium | Partially mitigated | A temporary vpn-on-safe helper was created to update resolvconf before starting WireGuard. |
 | R-043 | Current VPN startup workaround is not final architecture | Medium | Open | Long-term preferred direction is NetworkManager-managed WireGuard with DNS policy and VPN kill switch. |
+
+## NetworkManager WireGuard Evaluation Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-044 | wg-quick and resolvconf workflow may be fragile after reboot | Medium | Partially mitigated | NetworkManager-managed WireGuard was tested successfully and is now a viable replacement candidate. |
+| R-045 | NetworkManager WireGuard profile not yet post-reboot validated | Medium | Open | Manual NetworkManager activation worked, but post-reboot validation is still required before making it the primary workflow. |
+| R-046 | VPN autoconnect behavior not finalized | Medium | Open | Autoconnect remains disabled during testing. Final behavior should be decided after DNS policy and kill switch planning. |
