@@ -2,16 +2,16 @@
 
 ## Overview
 
-This project documents the configuration, security baseline, dotfiles, and operational setup of a personal Arch Linux workstation.
+This project documents the configuration, security baseline, service review, VPN/DNS behavior, and sanitized dotfiles of a personal Arch Linux workstation.
 
 The goal is to build a clean, reproducible, and well-documented Linux workstation environment focused on:
 
 - system transparency
 - secure defaults
-- network awareness
-- firewall and service validation
-- VPN and DNS verification
-- public dotfile organization
+- firewall validation
+- VPN and DNS review
+- service minimization
+- dotfile organization
 - private data separation
 - practical infrastructure documentation
 
@@ -19,75 +19,23 @@ This is not intended to be a fully hardened enterprise workstation.
 
 It is a personal learning and portfolio project focused on understanding, documenting, and improving a real Linux environment step by step.
 
-## Current Environment
+## Environment
 
-- Operating System: Arch Linux
-- Window Manager: Hyprland
-- Terminal: Kitty
-- Application Launcher: Rofi
-- Status Bar: Waybar
-- Firewall: UFW
-- VPN: WireGuard with ProtonVPN
-- DNS: Quad9
-- Intrusion Prevention: Fail2ban
-
-## Project Goals
-
-1. Document the current system state.
-2. Separate public dotfiles from private application data.
-3. Validate firewall rules and exposed services.
-4. Verify VPN routing and DNS behavior.
-5. Review SSH security and key handling.
-6. Document Fail2ban configuration and protected services.
-7. Identify remaining risks in a risk register.
-8. Build a safe public version of the configuration for portfolio use.
-
-## Scope
-
-### In Scope
-
-- Arch Linux workstation documentation
-- Hyprland-related dotfiles
-- Shell and terminal configuration
-- Firewall baseline
-- VPN and DNS validation
-- Fail2ban review
-- Security checklist
-- Risk register
-- Backup planning
-
-### Out of Scope
-
-- Publishing private VPN configuration
-- Publishing secrets, tokens, keys, or passwords
-- Advanced enterprise hardening
-- Disk encryption migration
-- AppArmor or auditd deployment at this stage
-
-## Documentation Structure
-
-- docs/system-inventory.md
-- docs/security-baseline.md
-- docs/network-baseline.md
-- docs/vpn-dns-baseline.md
-- docs/dns-behavior-review.md
-- docs/post-reboot-validation.md
-- docs/firewall-fail2ban.md
-- docs/package-service-inventory.md
-- docs/enabled-services-review.md
-- docs/dotfiles-guide.md
-- docs/risk-register.md
-- docs/project-log.md
-
-## Current Status
-
-Project initialized.
-
-Next step: collect the first system inventory and document the current workstation state.
+| Component | Value |
+|---|---|
+| Operating System | Arch Linux |
+| Device | Lenovo ThinkPad T480 |
+| Window Manager | Hyprland |
+| Terminal | Kitty |
+| Application Launcher | Rofi |
+| Status Bar | Waybar |
+| Shell | Zsh |
+| Firewall | UFW |
+| Intrusion Prevention | Fail2ban |
+| VPN | WireGuard-based ProtonVPN setup |
+| DNS | NetworkManager / resolvconf reviewed, Quad9 observed during VPN-active state |
 
 ## Current Baseline Status
-
-The current workstation baseline includes:
 
 | Area | Status |
 |---|---|
@@ -104,24 +52,166 @@ The current workstation baseline includes:
 | containerd | Disabled and inactive during normal use |
 | Dotfiles | Selected and sanitized |
 | Post-reboot validation | Completed |
-| Public repository review | In progress |
+| Repository safety review | In progress |
 
-## Security Notes
+## Security Baseline Highlights
 
-This repository intentionally excludes private raw command outputs and sensitive configuration files.
+### Firewall
 
-The private/ directory is used only for local evidence collection and must not be uploaded.
+UFW is active and enabled.
 
-VPN configuration files, SSH keys, tokens, passwords, endpoints, and raw network data are excluded from the public repository.
+Current policy:
+
+| Direction | Policy |
+|---|---|
+| Incoming | Deny |
+| Outgoing | Allow |
+| Routed | Deny |
+
+No explicit inbound allow rules remain.
+
+Previously open inbound rules for SSH, WireGuard-style traffic, and a development port were removed.
+
+### SSH
+
+The SSH daemon is disabled and inactive.
+
+SSH is not exposed through the firewall.
+
+If SSH is enabled in the future, it should use:
+
+- key-based authentication
+- disabled root login
+- disabled password login where possible
+- restricted firewall source rules
+- active Fail2ban protection
+
+### Fail2ban
+
+Fail2ban is enabled and active.
+
+The sshd jail is configured and ready for future SSH hardening, although SSH is not currently exposed.
+
+### Docker
+
+Docker remains installed for infrastructure labs and development work.
+
+However, Docker is no longer started automatically at boot.
+
+Current Docker/container runtime state:
+
+| Service | State |
+|---|---|
+| docker.service | disabled / inactive |
+| docker.socket | disabled / inactive |
+| containerd.service | disabled / inactive |
+
+Docker can be started manually when needed for lab work.
+
+### VPN and DNS
+
+VPN routing was validated through policy routing.
+
+The public route decision selected the VPN interface placeholder used in this public repository:
+
+| Item | Result |
+|---|---|
+| VPN interface placeholder | vpn0 |
+| Policy routing table | 51820 |
+| VPN-active route | via vpn0 |
+| VPN-off route | via Wi-Fi |
+| Quad9 with VPN active | detected |
+| Quad9 with VPN off | not detected directly |
+
+DNS behavior differs between VPN-on and VPN-off states.
+
+A temporary VPN startup workaround is documented. The long-term preferred direction is to evaluate a NetworkManager-managed WireGuard profile with clear DNS policy and VPN leak protection.
+
+## Documentation
+
+| Document | Purpose |
+|---|---|
+| docs/system-inventory.md | Sanitized system and hardware inventory |
+| docs/security-baseline.md | Overall workstation security posture |
+| docs/network-baseline.md | Network interface and routing baseline |
+| docs/vpn-dns-baseline.md | VPN routing and DNS baseline |
+| docs/dns-behavior-review.md | VPN-on and VPN-off DNS comparison |
+| docs/firewall-fail2ban.md | Firewall, listening services, SSH, and Fail2ban review |
+| docs/package-service-inventory.md | Package, AUR, service, and Docker review |
+| docs/enabled-services-review.md | Full enabled systemd services review |
+| docs/post-reboot-validation.md | Post-reboot validation results |
+| docs/dotfiles-guide.md | Dotfiles review and sanitization notes |
+| docs/risk-register.md | Security and operational risk register |
+| docs/project-log.md | Project progress log |
+| docs/repository-review.md | Pre-publication repository safety review |
+
+## Dotfiles
+
+The dotfiles directory contains a sanitized subset of the workstation configuration.
+
+Included components:
+
+| Component | Purpose |
+|---|---|
+| Hyprland | Wayland compositor configuration |
+| Hyprpaper | Wallpaper configuration with placeholder paths |
+| Waybar | Status bar configuration |
+| Kitty | Terminal configuration |
+| Rofi | Application launcher and theme |
+| Starship | Shell prompt configuration |
+| Neovim | Editor configuration |
+| Zsh | Sanitized shell configuration |
+
+The public dotfiles do not include:
+
+- VPN configuration files
+- WireGuard private keys
+- SSH keys
+- browser data
+- application caches
+- tokens
+- passwords
+- raw command outputs
+- full home directory or full ~/.config dump
+
+## Repository Safety
+
+This repository intentionally excludes local raw evidence and sensitive configuration.
+
+The private/ directory is used only for local collection and must not be uploaded.
+
+The .gitignore file excludes:
+
+- private/
+- key files
+- token files
+- secret files
+- environment files
+- WireGuard configuration files
+- backup and temporary files
+
+Before public upload, the repository should be reviewed with:
+
+- git status
+- git ls-files
+- critical sensitive pattern scan
+- private directory ignore check
 
 ## Future Hardening Work
 
 Planned future work includes:
 
-1. Replace temporary VPN startup workaround with a cleaner architecture.
-2. Evaluate NetworkManager-managed WireGuard profile.
+1. Replace the temporary VPN startup workaround with a cleaner architecture.
+2. Evaluate a NetworkManager-managed WireGuard profile.
 3. Define a clear DNS policy.
-4. Evaluate VPN kill switch / leak protection.
+4. Evaluate VPN kill switch and leak protection.
 5. Perform external DNS leak testing.
-6. Build backup and restore strategy.
+6. Build a backup and restore strategy.
 7. Review SSH hardening if remote access is needed later.
+8. Prepare the repository for public GitHub publication.
+
+## Project Status
+
+Initial workstation baseline completed locally.
+
+The project is currently in the repository review and presentation polish phase.

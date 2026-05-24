@@ -106,3 +106,32 @@ Action taken:
 | Local VPN interface/profile name present in public docs | Replaced with generic placeholder vpn0 |
 
 The public repository should describe behavior and architecture without exposing local machine-specific VPN profile names.
+
+## Final README Polish
+
+The README was rewritten to present the project as a structured workstation baseline and portfolio-ready documentation project.
+
+The final README includes:
+
+- project overview
+- environment summary
+- current baseline status
+- security baseline highlights
+- documentation index
+- dotfiles scope
+- repository safety notes
+- future hardening work
+
+## Final Review Status
+
+The repository is close to public-ready state.
+
+Before uploading to GitHub, perform one last manual review of:
+
+1. README.md
+2. docs/
+3. dotfiles/
+4. git ls-files output
+5. final critical scan output
+
+Status: final local review in progress.
