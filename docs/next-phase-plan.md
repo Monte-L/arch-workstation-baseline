@@ -304,3 +304,24 @@ Decision:
 NetworkManager is now the preferred VPN control method.
 
 The old wg-quick/resolvconf workflow remains as fallback while DNS policy and kill switch planning continue.
+
+## Phase 2B Update - DNS Policy Definition
+
+DNS policy was defined and tested.
+
+Findings:
+
+| State | Result |
+|---|---|
+| VPN inactive | Quad9 detected through Wi-Fi profile |
+| VPN active | Quad9 detected through NetworkManager WireGuard profile |
+| IPv6 | Ignored/disabled in the current tested path |
+| DNS management | NetworkManager preferred |
+
+Current decision:
+
+Quad9 is configured for the active Wi-Fi profile and the NetworkManager WireGuard profile.
+
+This improves DNS consistency, but does not replace a VPN kill switch.
+
+New Wi-Fi or Ethernet profiles may require separate configuration or future dispatcher automation.

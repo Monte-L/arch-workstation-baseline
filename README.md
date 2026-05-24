@@ -121,7 +121,7 @@ The public route decision selected the VPN interface placeholder used in this pu
 | VPN-active route | via vpn0 |
 | VPN-off route | via Wi-Fi |
 | Quad9 with VPN active | detected |
-| Quad9 with VPN off | not detected directly |
+| Quad9 with VPN off | detected after DNS policy update |
 
 DNS behavior differs between VPN-on and VPN-off states.
 
@@ -136,6 +136,7 @@ A temporary VPN startup workaround is documented. The long-term preferred direct
 | docs/network-baseline.md | Network interface and routing baseline |
 | docs/vpn-dns-baseline.md | VPN routing and DNS baseline |
 | docs/dns-behavior-review.md | VPN-on and VPN-off DNS comparison |
+| docs/dns-policy.md | Defined DNS behavior for VPN-on and VPN-off states |
 | docs/firewall-fail2ban.md | Firewall, listening services, SSH, and Fail2ban review |
 | docs/package-service-inventory.md | Package, AUR, service, and Docker review |
 | docs/enabled-services-review.md | Full enabled systemd services review |

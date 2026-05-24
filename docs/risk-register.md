@@ -136,3 +136,11 @@ The next priorities are:
 |---|---|---|---|---|
 | R-047 | NetworkManager WireGuard may fail after reboot | Medium | Mitigated | Post-reboot validation confirmed NetworkManager can activate the WireGuard profile successfully. |
 | R-048 | Temporary wg-quick/resolvconf workaround still exists | Low | Documented | The workaround remains as fallback, but NetworkManager is now the preferred VPN control method. |
+
+## DNS Policy Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-049 | VPN-off DNS used network-provided resolver | Medium | Mitigated | Quad9 DNS was configured on the active Wi-Fi NetworkManager profile. |
+| R-050 | DNS policy may not apply to new Wi-Fi or Ethernet profiles | Medium | Open | Current DNS policy applies to the configured profile. Future dispatcher automation may be needed for new connections. |
+| R-051 | DNS policy does not replace VPN kill switch | Medium | Open | DNS is more consistent, but ordinary traffic can still leave via Wi-Fi when VPN is inactive. |

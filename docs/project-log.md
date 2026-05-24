@@ -245,3 +245,22 @@ The next required step is post-reboot validation before making NetworkManager th
 NetworkManager-managed WireGuard passed post-reboot validation.
 
 NetworkManager is now the preferred VPN control method, while wg-quick plus vpn-on-safe remains available as fallback.
+
+## DNS Policy Definition
+
+### Completed
+
+- Reviewed DNS behavior after NetworkManager WireGuard validation.
+- Configured Quad9 DNS on the active Wi-Fi NetworkManager profile.
+- Ignored IPv6 on the tested Wi-Fi profile to reduce leak risk in the current setup.
+- Confirmed Quad9 DNS is detected when VPN is inactive.
+- Confirmed Quad9 DNS is detected when VPN is active.
+- Confirmed VPN-active public route uses the NetworkManager WireGuard interface.
+
+### Result
+
+DNS behavior is now more consistent.
+
+Quad9 is detected in both VPN-off and VPN-on states.
+
+This improves the baseline, but does not replace VPN kill switch or external DNS leak testing.
