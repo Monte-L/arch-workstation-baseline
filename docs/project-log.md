@@ -333,3 +333,22 @@ No kill switch rules were applied.
 The project now has a preview step before any restrictive firewall rules are tested.
 
 No kill switch rules were applied.
+
+## VPN Kill Switch Manual Test
+
+### Completed
+
+- Applied a temporary UFW-based VPN kill switch test.
+- Confirmed traffic works while VPN is active.
+- Confirmed ordinary outbound traffic is blocked when VPN is disconnected.
+- Confirmed traffic works again after reactivating the VPN.
+- Executed rollback after the test.
+- Confirmed baseline firewall policy was restored.
+
+### Result
+
+The manual kill switch test was successful.
+
+The test confirmed that the planned UFW model can block ordinary Wi-Fi fallback traffic when the VPN is inactive.
+
+The kill switch is not persistent yet.

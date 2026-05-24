@@ -168,3 +168,11 @@ The next priorities are:
 |---|---|---|---|---|
 | R-059 | No emergency firewall rollback command available | High | Mitigated | A local ufw-baseline-restore helper was created with an explicit --apply requirement. |
 | R-060 | Accidental rollback execution could remove custom rules | Low | Mitigated | The rollback script does nothing unless called with --apply. |
+
+## VPN Kill Switch Manual Test Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-061 | Ordinary outbound traffic leaks when VPN disconnects | High | Partially mitigated | Manual UFW kill switch test successfully blocked ordinary outbound traffic when VPN was disconnected. |
+| R-062 | Kill switch not persistent yet | Medium | Open | Test rules were rolled back after validation. Persistent behavior still requires design and reboot testing. |
+| R-063 | Real VPN endpoint may appear in local firewall output | Medium | Documented | Raw outputs must remain private and must not be published. Public documentation uses sanitized placeholders. |
