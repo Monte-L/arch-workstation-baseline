@@ -1,0 +1,25 @@
+# Safe PATH baseline
+export PATH="$HOME/.local/bin:$HOME/go/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+autoload -U colors && colors
+
+# Prompt
+eval "$(starship init zsh)"
+
+# Syntax highlighting and autosuggestions
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Basic aliases
+alias vim='nvim'
+alias vi='nvim'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# Waybar restart helper
+alias waybar-restart='pkill waybar; sleep 1; hyprctl dispatch exec "waybar"'
+
+# VPN helpers - profile name intentionally generic for public documentation
+alias vpn-on='sudo wg-quick up <profile-name>'
+alias vpn-off='sudo wg-quick down <profile-name>'
+alias vpn-status='sudo wg show'

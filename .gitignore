@@ -1,0 +1,23 @@
+# Private/local-only files
+private/
+
+# Sensitive material
+*.key
+*.pem
+*.token
+*.secret
+*.env
+
+# VPN / WireGuard sensitive configs
+**/wg*.conf
+**/wireguard/*.conf
+**/*private*.conf
+
+# Backup or temporary files
+*.bak
+*.old
+*.tmp
+
+# System noise
+.DS_Store
+Thumbs.db
