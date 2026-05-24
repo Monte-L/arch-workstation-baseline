@@ -435,3 +435,22 @@ The next step is to choose a backup destination and test a small restore.
 The first USB backup and small restore test passed.
 
 Only non-sensitive data was included because the USB drive was treated as non-encrypted removable storage.
+
+## Restic Encrypted Backup Test
+
+### Completed
+
+- Confirmed Restic is installed.
+- Initialized a Restic repository on the USB backup drive.
+- Created non-sensitive test data.
+- Created an encrypted Restic backup snapshot.
+- Listed Restic snapshots.
+- Ran Restic repository integrity check.
+- Restored the latest snapshot into a temporary directory.
+- Confirmed test files restored successfully.
+
+### Result
+
+The encrypted USB backup workflow passed.
+
+Restic is now a viable candidate for future sensitive backups, provided the backup password is managed securely.

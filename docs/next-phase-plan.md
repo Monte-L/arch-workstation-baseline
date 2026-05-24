@@ -427,3 +427,23 @@ Results:
 Next recommended step:
 
 Evaluate encrypted backup options before storing private VPN, SSH, browser, or personal document data.
+
+## Phase 2E Update - Restic Encrypted Backup Test
+
+A first encrypted backup and restore test using Restic was completed.
+
+Results:
+
+| Item | Status |
+|---|---|
+| Restic installed | confirmed |
+| Restic repository initialized on USB | completed |
+| Non-sensitive test backup | completed |
+| Snapshot listing | completed |
+| Repository integrity check | passed |
+| Restore test | passed |
+| Encrypted backup workflow | viable |
+
+Next recommended step:
+
+Define a real backup include/exclude policy and password storage strategy before backing up sensitive data.

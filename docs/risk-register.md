@@ -200,3 +200,11 @@ The next priorities are:
 | R-070 | No tested removable backup workflow | Medium | Mitigated | A USB backup and small restore test was completed with non-sensitive data. |
 | R-071 | Unencrypted USB storage could expose sensitive data | High | Open | Sensitive files were intentionally excluded. Encrypted backup is still recommended for private data. |
 | R-072 | Backup integrity not verified | Medium | Partially mitigated | SHA256 checksums were generated, but larger restore testing is still pending. |
+
+## Restic Encrypted Backup Test Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-073 | No tested encrypted backup workflow | High | Mitigated | Restic encrypted backup and restore test passed using non-sensitive data. |
+| R-074 | Restic password loss would make backups unrecoverable | High | Open | Password storage strategy must be defined before real sensitive backups. |
+| R-075 | Sensitive files may be included accidentally | High | Open | A backup include/exclude policy is needed before backing up real private data. |
