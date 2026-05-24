@@ -491,3 +491,19 @@ Next step is a selected-directory Restic backup using the exclude file.
 The selected-directory encrypted Restic backup test passed.
 
 Restic successfully backed up a real project directory while excluding private data and Git internals.
+
+## Restic Password Strategy
+
+### Completed
+
+- Created Restic password strategy document.
+- Defined password handling requirements.
+- Defined unsafe password storage locations.
+- Defined recommended password storage approach.
+- Marked sensitive backups as blocked until password storage is confirmed.
+
+### Result
+
+Restic remains the preferred encrypted backup tool.
+
+Sensitive backup execution is intentionally delayed until password storage and recovery are clearly defined.

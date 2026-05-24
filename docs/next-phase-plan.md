@@ -488,3 +488,21 @@ Results:
 Next recommended step:
 
 Define password storage strategy before backing up sensitive private data.
+
+## Phase 2E Update - Restic Password Strategy
+
+Restic password strategy was documented.
+
+Current decision:
+
+| Item | Status |
+|---|---|
+| Restic selected backup test | passed |
+| Restore test | passed |
+| Exclude policy | created |
+| Password strategy document | created |
+| Sensitive backup | blocked until password storage is confirmed |
+
+Next recommended step:
+
+Choose the actual password storage method, then create a reviewed include list for selected private data.

@@ -224,3 +224,11 @@ The next priorities are:
 | R-079 | Restic exclude policy may fail to exclude private project data | High | Mitigated | Selected-directory restore test confirmed private/ was excluded. |
 | R-080 | Restic backup may include Git internals unnecessarily | Low | Mitigated | Selected-directory restore test confirmed .git/ was excluded. |
 | R-081 | Backup restore may not preserve expected project structure | Medium | Mitigated | README.md, docs/, and backup policy files restored successfully. |
+
+## Restic Password Strategy Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-082 | Restic password loss makes backups unrecoverable | High | Open | Password storage strategy was documented, but final storage method still needs to be chosen. |
+| R-083 | Restic password exposure compromises encrypted backups | High | Open | Password must not be stored in Git, plaintext files, screenshots, or backup repository. |
+| R-084 | Sensitive backup started before password recovery is ready | High | Mitigated | Sensitive backup execution is blocked until password storage is confirmed. |
