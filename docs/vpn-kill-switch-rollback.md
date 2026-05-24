@@ -40,15 +40,40 @@ The conceptual rollback is:
 
 ## Emergency Rollback Commands
 
-The exact rollback commands should be reviewed before use.
+The basic UFW rollback model is:
 
-A basic UFW rollback model is:
+    sudo ufw --force reset
+    sudo ufw default deny incoming
+    sudo ufw default allow outgoing
+    sudo ufw default deny routed
+    sudo ufw --force enable
 
-sudo ufw --force reset
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw default deny routed
-sudo ufw --force enable
+## Local Rollback Script
+
+A local helper script was created for emergency firewall rollback.
+
+Local path:
+
+    ~/.local/bin/ufw-baseline-restore
+
+The script requires an explicit apply flag:
+
+    ufw-baseline-restore --apply
+
+Without the apply flag, the script prints usage information and makes no changes.
+
+## Script Behavior
+
+When executed with `--apply`, the script restores the baseline UFW policy:
+
+| Step | Action |
+|---|---|
+| 1 | Reset UFW rules |
+| 2 | Set incoming policy to deny |
+| 3 | Set outgoing policy to allow |
+| 4 | Set routed policy to deny |
+| 5 | Enable UFW |
+| 6 | Print final UFW status |
 
 ## Safety Notes
 
@@ -57,6 +82,10 @@ This rollback restores basic outbound connectivity.
 It removes custom firewall rules.
 
 Before testing a kill switch, the current firewall status should be saved under private/raw/.
+
+The script is intended for emergency recovery during VPN kill switch testing.
+
+It should be available before any restrictive outbound firewall rules are tested.
 
 ## Test Requirements Before Kill Switch
 
@@ -76,5 +105,7 @@ Before applying any kill switch rule, confirm:
 ## Current Status
 
 Rollback plan drafted.
+
+Local rollback helper created.
 
 No kill switch rules applied yet.

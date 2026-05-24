@@ -301,3 +301,18 @@ The project is now ready for private facts collection and rollback planning.
 The system has enough information to design a manual kill switch test.
 
 No kill switch rules have been applied yet.
+
+## Local UFW Rollback Script
+
+### Completed
+
+- Collected a private UFW baseline snapshot.
+- Created local helper script: ufw-baseline-restore.
+- Added explicit --apply requirement to prevent accidental firewall reset.
+- Documented the rollback behavior.
+
+### Result
+
+A local emergency recovery command is now available before kill switch rules are tested.
+
+No kill switch rules were applied.

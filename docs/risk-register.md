@@ -161,3 +161,10 @@ The next priorities are:
 | R-056 | Outgoing firewall policy still allows non-VPN traffic | Medium | Open | UFW currently allows outgoing traffic by default. Kill switch design is required to prevent fallback leaks. |
 | R-057 | Kill switch requires private endpoint details | Medium | Documented | Endpoint information was collected privately and must not be published. |
 | R-058 | UFW may be limited for advanced VPN leak protection | Medium | Open | UFW-based testing is planned first. nftables may be evaluated if UFW is insufficient. |
+
+## VPN Kill Switch Rollback Preparation
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-059 | No emergency firewall rollback command available | High | Mitigated | A local ufw-baseline-restore helper was created with an explicit --apply requirement. |
+| R-060 | Accidental rollback execution could remove custom rules | Low | Mitigated | The rollback script does nothing unless called with --apply. |
