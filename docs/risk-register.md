@@ -106,3 +106,11 @@ The next priorities are:
 | R-036 | Quad9 not detected during earlier DNS baseline | Medium | Partially mitigated | Quad9 was detected directly in /etc/resolv.conf during VPN-active testing. VPN-off behavior still requires review. |
 | R-037 | DNS leak protection not externally validated | Medium | Open | VPN-active routing and Quad9 detection are positive signs, but an external DNS leak test is still required. |
 | R-038 | DNS behavior may differ between VPN-on and VPN-off states | Medium | Open | Earlier and later checks showed different resolver behavior. Both states must be documented separately. |
+
+## VPN Off DNS Review Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-039 | VPN-off traffic routes through regular Wi-Fi | Medium | Documented | When ProtonVPN is inactive, public route decision uses the Wi-Fi interface. |
+| R-040 | Quad9 not detected during VPN-off DNS test | Medium | Open | Quad9 was detected during VPN-active testing but not during VPN-off testing. |
+| R-041 | DNS behavior depends on VPN state | Medium | Open | VPN-on and VPN-off states produce different DNS behavior. Future hardening should evaluate DNS enforcement or VPN kill switch. |

@@ -127,3 +127,23 @@ No obvious unnecessary network-facing services were found enabled.
 The package set is cleaner and unnecessary debug packages were removed or confirmed absent.
 
 Remaining package review items are Go and tor-browser-alpha-bin.
+
+## DNS Behavior Review
+
+### Completed
+
+- Tested DNS behavior with ProtonVPN active.
+- Confirmed VPN-active public route through protonch table 51820.
+- Confirmed Quad9 direct detection during VPN-active test.
+- Tested DNS behavior with ProtonVPN inactive.
+- Confirmed VPN-off public route through Wi-Fi.
+- Confirmed Quad9 was not directly detected during VPN-off test.
+- Documented that DNS behavior differs between VPN-on and VPN-off states.
+
+### Result
+
+VPN-active state is preferred.
+
+VPN-off state requires further review because normal traffic returns to Wi-Fi and Quad9 was not directly detected.
+
+Future hardening should evaluate VPN kill switch or DNS enforcement after the inventory phase is complete.

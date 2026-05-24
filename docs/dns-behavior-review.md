@@ -78,3 +78,44 @@ The following information must not be published:
 - VPN endpoint
 - WireGuard keys
 - full raw NetworkManager DNS output
+
+## VPN Off Test
+
+A VPN-off DNS behavior review was performed after disabling the ProtonVPN WireGuard interface.
+
+| Item | Result |
+|---|---|
+| VPN interface | not detected |
+| Public route decision | via Wi-Fi interface |
+| systemd-resolved | disabled / inactive |
+| resolv.conf generator | resolvconf |
+| Quad9 direct detection | not detected |
+| DNS validation status | VPN-off behavior documented |
+
+## VPN On vs VPN Off Comparison
+
+| State | Public Route | Quad9 Direct Detection | Assessment |
+|---|---|---|---|
+| VPN active | via protonch / table 51820 | detected | Preferred state |
+| VPN inactive | via Wi-Fi interface | not detected | Requires review |
+
+## Current DNS Assessment
+
+The workstation behaves differently depending on VPN state.
+
+When ProtonVPN is active, public traffic is routed through the VPN interface and Quad9 is detected directly in /etc/resolv.conf.
+
+When ProtonVPN is inactive, public traffic uses the regular Wi-Fi route and Quad9 is not detected directly in /etc/resolv.conf.
+
+This means DNS behavior is acceptable in the VPN-active state but not fully controlled in the VPN-off state.
+
+## Follow-Up Decision
+
+A future hardening step should evaluate whether the workstation should enforce one of the following models:
+
+1. VPN-required mode with firewall-based kill switch.
+2. ProtonVPN/native kill switch mode.
+3. Quad9 enforced even when VPN is off.
+4. Normal VPN-off fallback accepted as a documented tradeoff.
+
+The current preferred direction is to evaluate a VPN kill switch after the inventory phase is complete.

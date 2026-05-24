@@ -134,3 +134,24 @@ Current interpretation:
 - Quad9 DNS is visible in the active resolver configuration while VPN is active.
 - DNS leak protection still requires external validation.
 - VPN-off DNS behavior still needs to be reviewed.
+
+## DNS Behavior Review - VPN Off
+
+A VPN-off DNS test was performed for comparison.
+
+Findings:
+
+| Item | Result |
+|---|---|
+| VPN interface | not detected |
+| Public route decision | via Wi-Fi interface |
+| systemd-resolved | disabled / inactive |
+| resolv.conf generator | resolvconf |
+| Quad9 direct detection | not detected |
+
+Interpretation:
+
+- Without ProtonVPN active, traffic returns to the regular Wi-Fi route.
+- Quad9 was not detected directly in /etc/resolv.conf during the VPN-off test.
+- VPN-off DNS behavior is not equivalent to VPN-on DNS behavior.
+- This supports the need for a future VPN kill switch or DNS enforcement review.
