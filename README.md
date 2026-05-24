@@ -154,6 +154,7 @@ A temporary VPN startup workaround is documented. The long-term preferred direct
 | docs/vpn-kill-switch-test-results.md | First manual VPN kill switch test results |
 | docs/persistent-kill-switch-validation.md | Persistent VPN kill switch post-reboot validation |
 | docs/vpn-autoconnect-validation.md | NetworkManager VPN autoconnect validation |
+| docs/final-workstation-status-review.md | Final workstation status review |
 | docs/local-helper-scripts.md | Local helper scripts used during VPN and firewall testing |
 | docs/restore-checklist.md | Workstation restore checklist |
 | docs/usb-backup-test.md | First USB backup and small restore test |
@@ -234,26 +235,35 @@ Planned future work includes:
 
 ## Project Status
 
-Initial workstation baseline completed and published.
+Initial Arch workstation baseline completed.
 
-The repository has passed local safety review and is available as a public portfolio project.
+Current milestone: privacy-oriented workstation baseline validated.
 
-Current phase: Phase 2B - DNS Policy Definition.
+Completed:
 
-Completed recent work:
+- sanitized public dotfiles
+- system and service inventory
+- UFW baseline
+- Fail2ban validation
+- NetworkManager-managed WireGuard
+- VPN autoconnect
+- Quad9 DNS policy
+- external DNS leak testing
+- persistent VPN kill switch
+- post-reboot kill switch validation
+- USB backup test
+- Restic encrypted backup test
+- selected-directory restore testing
+- emergency firewall rollback helper
 
-- NetworkManager-managed WireGuard evaluation
-- Post-reboot NetworkManager WireGuard validation
-- Quad9 DNS configured for the active Wi-Fi profile
-- Quad9 DNS confirmed with VPN inactive
-- Quad9 DNS confirmed with VPN active
-- wg-quick / resolvconf workflow retained as fallback
+Current operating model:
 
-Upcoming work:
+- Wi-Fi connects automatically
+- VPN starts automatically through NetworkManager
+- UFW blocks ordinary outbound traffic outside the VPN
+- DNS uses Quad9
+- rollback remains available through local helper scripts
 
-1. Validate DNS policy after another reboot.
-2. Perform external DNS leak testing.
-3. Plan VPN kill switch / leak protection.
-4. Decide whether new Wi-Fi/Ethernet profiles should receive automatic DNS policy.
-5. Build backup and restore strategy.
-6. Review SSH hardening only if remote access becomes necessary.
+Status: completed for current baseline phase.
+
+Future work is optional and should be treated as advanced hardening or backup expansion.
