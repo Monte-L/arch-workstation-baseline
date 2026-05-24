@@ -192,3 +192,11 @@ The next priorities are:
 | R-067 | No tested backup strategy before persistent hardening | High | Open | Backup strategy was drafted, but no full backup or restore test has been completed yet. |
 | R-068 | Private configuration may be backed up insecurely | High | Open | VPN, SSH, browser, and token data must only be stored in private/encrypted backups. |
 | R-069 | Restore process not yet tested | Medium | Open | A restore checklist was created, but restore testing is still required. |
+
+## USB Backup Test Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-070 | No tested removable backup workflow | Medium | Mitigated | A USB backup and small restore test was completed with non-sensitive data. |
+| R-071 | Unencrypted USB storage could expose sensitive data | High | Open | Sensitive files were intentionally excluded. Encrypted backup is still recommended for private data. |
+| R-072 | Backup integrity not verified | Medium | Partially mitigated | SHA256 checksums were generated, but larger restore testing is still pending. |

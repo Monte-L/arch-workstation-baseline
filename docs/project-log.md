@@ -414,3 +414,24 @@ Backup planning has started.
 No full backup has been executed yet.
 
 The next step is to choose a backup destination and test a small restore.
+
+## USB Backup Test
+
+### Completed
+
+- Identified USB flash drive.
+- Mounted the USB drive for backup testing.
+- Created backup directory structure.
+- Exported package lists.
+- Exported service lists.
+- Created a tracked-only project archive using git archive.
+- Generated SHA256 checksums.
+- Performed a small restore test.
+- Confirmed README, docs, and dotfiles restored successfully.
+- Synchronized and unmounted the USB drive.
+
+### Result
+
+The first USB backup and small restore test passed.
+
+Only non-sensitive data was included because the USB drive was treated as non-encrypted removable storage.

@@ -154,6 +154,7 @@ A temporary VPN startup workaround is documented. The long-term preferred direct
 | docs/vpn-kill-switch-test-results.md | First manual VPN kill switch test results |
 | docs/local-helper-scripts.md | Local helper scripts used during VPN and firewall testing |
 | docs/restore-checklist.md | Workstation restore checklist |
+| docs/usb-backup-test.md | First USB backup and small restore test |
 | docs/backup-restore-strategy.md | Backup and restore strategy |
 | docs/vpn-kill-switch-facts-summary.md | Sanitized facts for VPN kill switch design |
 

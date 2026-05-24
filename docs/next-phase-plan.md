@@ -405,3 +405,25 @@ Completed:
 Recommended next step:
 
 Choose a backup destination and perform a small restore test before enabling persistent firewall leak protection.
+
+## Phase 2E Update - USB Backup Test
+
+A first USB backup and small restore test was completed.
+
+Results:
+
+| Item | Status |
+|---|---|
+| USB backup medium identified | completed |
+| Non-sensitive backup created | completed |
+| Package lists exported | completed |
+| Service lists exported | completed |
+| Tracked project archive created | completed |
+| Checksums generated | completed |
+| Small restore test | passed |
+| Sensitive backup | pending |
+| Encrypted backup | pending |
+
+Next recommended step:
+
+Evaluate encrypted backup options before storing private VPN, SSH, browser, or personal document data.
