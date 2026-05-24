@@ -109,3 +109,21 @@ This keeps the workstation lighter during normal use while preserving lab functi
 The enabled service set is minimal and appropriate for a personal Arch Linux workstation.
 
 No obvious unnecessary network-facing services were found enabled.
+
+## Package Cleanup Final Review
+
+### Completed
+
+- Confirmed yay-debug is not installed.
+- Confirmed wireguard-dkms is not installed.
+- Confirmed wg and wg-quick remain available.
+- Reviewed orphan packages.
+- Removed eww-debug.
+- Kept Go as a documented review item.
+- Kept tor-browser-alpha-bin as a documented review item.
+
+### Result
+
+The package set is cleaner and unnecessary debug packages were removed or confirmed absent.
+
+Remaining package review items are Go and tor-browser-alpha-bin.

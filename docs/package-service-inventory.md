@@ -149,3 +149,42 @@ This reduces the workstation's always-on service footprint while preserving Dock
 The previous localhost-only containerd listener is no longer present after stopping Docker and containerd.
 
 This reduces unnecessary local listening services during normal workstation use.
+
+## Package Cleanup Final Review
+
+A final package cleanup review was performed after the initial service hardening.
+
+### Removed / Already Removed
+
+| Package | Result | Notes |
+|---|---|---|
+| yay-debug | Not installed | Debug package no longer present. |
+| wireguard-dkms | Not installed | Not required for current setup. WireGuard tools remain available. |
+| eww-debug | Removed | Debug package not required for normal workstation use. |
+
+### Kept for Review
+
+| Package | Status | Notes |
+|---|---|---|
+| tor-browser-alpha-bin | Installed | Alpha software. Kept for now, but should be reviewed later. |
+| go | Installed as orphan | Kept for now because it may be useful for development, AUR builds, or future tooling. |
+
+### WireGuard Tool Check
+
+WireGuard userland tools remain available:
+
+| Tool | Status |
+|---|---|
+| wg | Available |
+| wg-quick | Available |
+
+### Current Assessment
+
+The package set is cleaner after removing unnecessary debug packages and confirming that WireGuard DKMS is not required for the current kernel setup.
+
+Remaining review items:
+
+1. Decide whether to keep tor-browser-alpha-bin or replace it with a stable Tor Browser package.
+2. Decide whether Go should remain installed as a development tool.
+3. Periodically review AUR packages with pacman -Qqem.
+4. Periodically review orphan packages with pacman -Qdtq.

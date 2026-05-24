@@ -90,3 +90,11 @@ The next priorities are:
 | R-030 | Unnecessary network-facing services enabled at boot | Medium | Mitigated | No unnecessary network-facing services such as Docker, SSH, CUPS, Avahi, Samba, or Bluetooth were observed as enabled during the review. |
 | R-031 | SSH-related local Unix socket observed | Low | Documented | An sshd-related local Unix socket was observed, but sshd.service is disabled/inactive and SSH is not exposed through UFW. |
 | R-032 | Enabled services should be rechecked after reboot | Low | Open | A post-reboot validation should confirm Docker, containerd, and NetworkManager-wait-online remain disabled/inactive. |
+
+## Package Cleanup Final Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-033 | Unnecessary debug packages installed | Low | Mitigated | Debug packages such as yay-debug, wireguard-dkms, and eww-debug were removed or confirmed absent where not required. |
+| R-034 | Go package appears as orphan | Low | Documented | Go is installed but not required by another package. It is kept for now as a possible development/build tool. |
+| R-035 | Tor Browser alpha package remains installed | Low | Open | tor-browser-alpha-bin remains installed and should be reviewed later against a stable Tor Browser option. |
