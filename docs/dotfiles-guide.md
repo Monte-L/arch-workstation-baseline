@@ -66,3 +66,33 @@ Findings and actions:
 | Critical sensitive scan | No critical findings after cleanup |
 
 The public dotfiles directory now contains only selected, reviewed configuration files.
+
+## Zsh Initialization Fix
+
+A post-reboot shell issue was identified where terminal colors and syntax highlighting did not initialize correctly after boot.
+
+### Finding
+
+The zsh syntax highlighting plugin was being loaded before the custom highlight styles were defined.
+
+This could cause colors to behave inconsistently when opening a new terminal after boot.
+
+### Action
+
+The zsh configuration was reorganized.
+
+The corrected order is:
+
+1. Safe PATH baseline.
+2. Color support.
+3. Autosuggestion style.
+4. Syntax highlighting styles.
+5. Aliases and helpers.
+6. Starship prompt initialization.
+7. Zsh plugins loaded near the end.
+
+### Result
+
+The shell initialization order is cleaner and more reliable.
+
+The public zshrc was also sanitized to avoid exposing personal wallpaper/logo paths or VPN profile names.

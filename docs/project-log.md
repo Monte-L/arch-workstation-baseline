@@ -171,3 +171,19 @@ The helper performs:
 This is documented as a temporary workaround.
 
 The preferred long-term design is NetworkManager-managed WireGuard with explicit DNS policy and VPN leak protection.
+
+## Zsh Dotfile Initialization Fix
+
+### Completed
+
+- Reviewed the real zshrc after post-reboot shell color issue.
+- Identified plugin loading order as the likely cause.
+- Reordered zsh configuration.
+- Kept syntax highlighting plugin near the end of the file.
+- Preserved safe PATH baseline.
+- Preserved vpn-on-safe and vpn-off-safe aliases.
+- Updated the public sanitized zshrc.
+
+### Result
+
+The shell configuration is now cleaner, more reliable after boot, and safer for public documentation.
