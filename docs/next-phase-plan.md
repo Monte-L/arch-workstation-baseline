@@ -325,3 +325,28 @@ Quad9 is configured for the active Wi-Fi profile and the NetworkManager WireGuar
 This improves DNS consistency, but does not replace a VPN kill switch.
 
 New Wi-Fi or Ethernet profiles may require separate configuration or future dispatcher automation.
+
+## Phase 2C Started - VPN Kill Switch Planning
+
+VPN kill switch and leak protection planning has started.
+
+Current decision:
+
+No firewall kill switch rules are applied yet.
+
+The first step is documentation and safety planning.
+
+The next implementation steps are:
+
+1. Collect private kill switch facts.
+2. Identify Wi-Fi, Ethernet, VPN interface, and VPN endpoint information.
+3. Prepare rollback commands.
+4. Design a test-only ruleset.
+5. Test VPN-on state.
+6. Test VPN-off state.
+7. Test rollback.
+8. Only then consider persistent enforcement.
+
+The preferred long-term direction remains:
+
+NetworkManager-managed WireGuard plus DNS policy plus firewall-based leak protection.

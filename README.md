@@ -147,6 +147,7 @@ A temporary VPN startup workaround is documented. The long-term preferred direct
 | docs/repository-review.md | Pre-publication repository safety review |
 | docs/next-phase-plan.md | Future hardening roadmap and next phase plan |
 | docs/networkmanager-wireguard-evaluation.md | NetworkManager WireGuard migration evaluation |
+| docs/vpn-kill-switch-plan.md | VPN kill switch and leak protection planning |
 
 ## Dotfiles
 

@@ -264,3 +264,21 @@ DNS behavior is now more consistent.
 Quad9 is detected in both VPN-off and VPN-on states.
 
 This improves the baseline, but does not replace VPN kill switch or external DNS leak testing.
+
+## VPN Kill Switch Planning Started
+
+### Completed
+
+- Started Phase 2C for VPN kill switch and leak protection planning.
+- Created initial design document.
+- Clarified that the VPN cannot start before base network connectivity exists.
+- Defined the real goal as blocking ordinary outbound traffic outside the VPN.
+- Documented possible approaches.
+- Selected a cautious hybrid direction: NetworkManager for VPN control and firewall rules for leak protection.
+- Deferred rule application until rollback and testing are prepared.
+
+### Result
+
+No kill switch rules were applied yet.
+
+The project is now ready for private facts collection and rollback planning.

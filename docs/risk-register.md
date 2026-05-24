@@ -144,3 +144,12 @@ The next priorities are:
 | R-049 | VPN-off DNS used network-provided resolver | Medium | Mitigated | Quad9 DNS was configured on the active Wi-Fi NetworkManager profile. |
 | R-050 | DNS policy may not apply to new Wi-Fi or Ethernet profiles | Medium | Open | Current DNS policy applies to the configured profile. Future dispatcher automation may be needed for new connections. |
 | R-051 | DNS policy does not replace VPN kill switch | Medium | Open | DNS is more consistent, but ordinary traffic can still leave via Wi-Fi when VPN is inactive. |
+
+## VPN Kill Switch Planning Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-052 | Ordinary outbound traffic can leave when VPN is inactive | Medium | Open | DNS policy is improved, but traffic can still route through Wi-Fi when VPN is off. Kill switch planning has started. |
+| R-053 | Incorrect kill switch rules could break connectivity | High | Open | No rules should be applied before rollback commands and test plan are prepared. |
+| R-054 | VPN endpoint information is sensitive | Medium | Open | Endpoint details are required for implementation but must remain private and excluded from public documentation. |
+| R-055 | Kill switch persistence may break boot connectivity if misconfigured | High | Open | Initial implementation should be manual/test-only before enabling persistence. |
