@@ -249,3 +249,11 @@ The next priorities are:
 | R-089 | Browser profiles may expose sessions and tokens | High | Mitigated | Browser profiles are excluded by default. |
 | R-090 | VPN or SSH private material may be backed up accidentally | High | Partially mitigated | These categories require special handling and are excluded by default. |
 | R-091 | Private include list may expose local paths if committed | Medium | Mitigated | Real include candidates are stored under private/, which is ignored by Git. |
+
+## VPN Autoconnect Validation Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-092 | User may forget to start VPN manually | Medium | Mitigated | NetworkManager WireGuard autoconnect was enabled and validated. |
+| R-093 | Traffic may leave before VPN starts | High | Mitigated | Persistent kill switch blocks ordinary outbound traffic outside the VPN. |
+| R-094 | VPN autoconnect may fail on restrictive networks | Medium | Open | Rollback and manual helpers remain available for troubleshooting. |

@@ -554,3 +554,20 @@ The next step is to choose a small reviewed private path for a controlled encryp
 Persistent kill switch behavior passed post-reboot validation.
 
 VPN autoconnect is not enabled yet.
+
+## VPN Autoconnect Validation
+
+### Completed
+
+- Enabled autoconnect for the NetworkManager WireGuard profile.
+- Confirmed Wi-Fi autoconnect remained enabled.
+- Tested VPN autoconnect behavior after boot.
+- Confirmed internet access worked through the VPN.
+- Confirmed the persistent kill switch remained active.
+- Confirmed the current model prevents ordinary traffic from leaving outside the VPN when the VPN is inactive.
+
+### Result
+
+NetworkManager VPN autoconnect passed validation.
+
+The workstation now uses a stronger privacy model: persistent kill switch plus VPN autoconnect.

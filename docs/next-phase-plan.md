@@ -525,3 +525,22 @@ Completed:
 Next recommended step:
 
 Choose a small reviewed private directory and perform a controlled encrypted backup/restore test.
+
+## Phase 2G Update - VPN Autoconnect
+
+NetworkManager VPN autoconnect was enabled and validated.
+
+Current privacy baseline:
+
+| Component | Status |
+|---|---|
+| NetworkManager WireGuard | active control method |
+| VPN autoconnect | enabled |
+| Persistent kill switch | enabled |
+| Quad9 DNS policy | active |
+| External DNS leak testing | passed previously |
+| Rollback helper | available |
+
+Recommended next step:
+
+Perform a final workstation status review and update the README project status.
