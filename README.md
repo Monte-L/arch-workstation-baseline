@@ -217,8 +217,24 @@ Planned future work includes:
 
 Initial workstation baseline completed and published.
 
-The repository has passed the local safety review and is now available as a public portfolio project.
+The repository has passed local safety review and is available as a public portfolio project.
 
-Current phase: next-phase planning.
+Current phase: Phase 2B - DNS Policy Definition.
 
-Upcoming work will focus on NetworkManager-managed WireGuard evaluation, DNS policy, VPN kill switch planning, external DNS leak testing, backup and restore strategy, and optional SSH hardening.
+Completed recent work:
+
+- NetworkManager-managed WireGuard evaluation
+- Post-reboot NetworkManager WireGuard validation
+- Quad9 DNS configured for the active Wi-Fi profile
+- Quad9 DNS confirmed with VPN inactive
+- Quad9 DNS confirmed with VPN active
+- wg-quick / resolvconf workflow retained as fallback
+
+Upcoming work:
+
+1. Validate DNS policy after another reboot.
+2. Perform external DNS leak testing.
+3. Plan VPN kill switch / leak protection.
+4. Decide whether new Wi-Fi/Ethernet profiles should receive automatic DNS policy.
+5. Build backup and restore strategy.
+6. Review SSH hardening only if remote access becomes necessary.
