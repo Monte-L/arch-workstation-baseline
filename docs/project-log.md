@@ -454,3 +454,20 @@ Only non-sensitive data was included because the USB drive was treated as non-en
 The encrypted USB backup workflow passed.
 
 Restic is now a viable candidate for future sensitive backups, provided the backup password is managed securely.
+
+## Restic Backup Include/Exclude Policy
+
+### Completed
+
+- Created a Restic exclude policy file.
+- Created a Restic backup policy document.
+- Defined initial include categories.
+- Defined initial exclude categories.
+- Marked VPN, SSH, browser, token, and raw private data as sensitive.
+- Defined that sensitive backups require password strategy first.
+
+### Result
+
+The project now has a backup include/exclude policy before larger Restic backups are attempted.
+
+Next step is a selected-directory Restic backup using the exclude file.

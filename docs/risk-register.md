@@ -208,3 +208,11 @@ The next priorities are:
 | R-073 | No tested encrypted backup workflow | High | Mitigated | Restic encrypted backup and restore test passed using non-sensitive data. |
 | R-074 | Restic password loss would make backups unrecoverable | High | Open | Password storage strategy must be defined before real sensitive backups. |
 | R-075 | Sensitive files may be included accidentally | High | Open | A backup include/exclude policy is needed before backing up real private data. |
+
+## Restic Backup Policy Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-076 | Backup may include caches or unnecessary large files | Medium | Mitigated | A Restic exclude policy was created. |
+| R-077 | Backup may accidentally include private keys or tokens | High | Partially mitigated | Exclude patterns were defined, but backup paths must still be reviewed manually. |
+| R-078 | Restic password storage strategy not defined | High | Open | Sensitive backups should wait until password handling is defined. |

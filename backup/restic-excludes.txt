@@ -1,0 +1,75 @@
+# Restic Exclude Policy
+#
+# This file defines paths and patterns that should normally be excluded
+# from workstation backups.
+#
+# Review carefully before using with real backups.
+
+# Caches
+.cache
+*/.cache
+.cache/*
+*/.cache/*
+
+# Browser/cache-heavy data
+.mozilla/firefox/*/cache2
+.config/google-chrome
+.config/chromium
+.config/BraveSoftware
+
+# Trash
+.local/share/Trash
+.local/share/Trash/*
+
+# Downloads are usually temporary; back up manually if needed
+Downloads
+Downloads/*
+
+# Build artifacts
+node_modules
+*/node_modules
+target
+*/target
+dist
+*/dist
+build
+*/build
+__pycache__
+*/__pycache__
+*.pyc
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+tmp
+*/tmp
+
+# Virtual machines and large disk images
+*.iso
+*.img
+*.qcow2
+*.vdi
+*.vmdk
+
+# Secrets and credentials
+*.key
+*.pem
+*.token
+*.secret
+*.env
+id_rsa
+id_ed25519
+
+# SSH private material
+.ssh/id_*
+.ssh/*_key
+
+# VPN / WireGuard private configs
+*.conf.private
+wg*.conf
+wireguard/*.conf
+
+# Project private raw evidence
+private/raw
+private/raw/*

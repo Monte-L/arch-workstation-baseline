@@ -447,3 +447,23 @@ Results:
 Next recommended step:
 
 Define a real backup include/exclude policy and password storage strategy before backing up sensitive data.
+
+## Phase 2E Update - Restic Backup Policy
+
+A Restic include/exclude policy was created.
+
+Completed:
+
+| Item | Status |
+|---|---|
+| Restic exclude file | created |
+| Backup policy document | created |
+| Sensitive categories identified | completed |
+| Initial include policy | completed |
+| Initial exclude policy | completed |
+| Password strategy | pending |
+| Selected-directory backup test | pending |
+
+Next recommended step:
+
+Run a selected-directory Restic backup test using the exclude file.
