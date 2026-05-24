@@ -232,3 +232,11 @@ The next priorities are:
 | R-082 | Restic password loss makes backups unrecoverable | High | Open | Password storage strategy was documented, but final storage method still needs to be chosen. |
 | R-083 | Restic password exposure compromises encrypted backups | High | Open | Password must not be stored in Git, plaintext files, screenshots, or backup repository. |
 | R-084 | Sensitive backup started before password recovery is ready | High | Mitigated | Sensitive backup execution is blocked until password storage is confirmed. |
+
+## Restic Password Storage Direction Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-085 | Restic password stored with backup media | High | Mitigated | Password must not be stored on the same USB backup drive. |
+| R-086 | Restic password not recoverable | High | Partially mitigated | Password manager plus offline written recovery copy selected as the storage direction. |
+| R-087 | Password accidentally documented publicly | High | Mitigated | Repository records only the storage strategy, not the password. |

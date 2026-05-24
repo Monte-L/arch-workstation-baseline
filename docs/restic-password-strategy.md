@@ -109,3 +109,28 @@ However, sensitive backup execution is blocked until password storage strategy i
 3. Test restoring selected private configuration.
 4. Consider periodic Restic check.
 5. Consider a second backup destination later.
+
+## Selected Password Storage Direction
+
+The selected password storage direction is:
+
+| Layer | Decision |
+|---|---|
+| Primary storage | trusted password manager |
+| Emergency recovery | offline written recovery copy |
+| Git repository storage | forbidden |
+| Same USB backup drive storage | forbidden |
+| Plaintext local file | forbidden |
+
+The actual Restic password is not recorded in this repository.
+
+The password must never be included in screenshots, command logs, public documentation, or copied into chat.
+
+## Sensitive Backup Readiness Update
+
+Sensitive backups may only begin after:
+
+1. the Restic password is saved in the selected password manager;
+2. an offline recovery copy exists;
+3. the password has been tested with `restic snapshots`;
+4. the include/exclude policy has been reviewed again.

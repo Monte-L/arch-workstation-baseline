@@ -507,3 +507,16 @@ Restic successfully backed up a real project directory while excluding private d
 Restic remains the preferred encrypted backup tool.
 
 Sensitive backup execution is intentionally delayed until password storage and recovery are clearly defined.
+
+## Restic Password Storage Direction
+
+### Completed
+
+- Selected the password storage direction for future Restic backups.
+- Defined password manager as the primary storage method.
+- Defined offline written recovery copy as emergency fallback.
+- Confirmed the Restic password must not be stored in Git, plaintext files, screenshots, chat, or the same USB backup drive.
+
+### Result
+
+Sensitive backups remain blocked until the real Restic password is stored safely and recovery access is confirmed.
