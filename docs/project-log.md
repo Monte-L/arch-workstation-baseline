@@ -471,3 +471,23 @@ Restic is now a viable candidate for future sensitive backups, provided the back
 The project now has a backup include/exclude policy before larger Restic backups are attempted.
 
 Next step is a selected-directory Restic backup using the exclude file.
+
+## Restic Selected Directory Backup Test
+
+### Completed
+
+- Updated Restic exclude policy to exclude private/ and .git/.
+- Used Restic to back up the workstation baseline project directory.
+- Applied the Restic exclude file during backup.
+- Restored the latest snapshot into a temporary directory.
+- Confirmed README.md was restored.
+- Confirmed docs/ was restored.
+- Confirmed backup policy files were restored.
+- Confirmed private/ was excluded.
+- Confirmed .git/ was excluded.
+
+### Result
+
+The selected-directory encrypted Restic backup test passed.
+
+Restic successfully backed up a real project directory while excluding private data and Git internals.

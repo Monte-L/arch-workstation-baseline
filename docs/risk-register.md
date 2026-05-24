@@ -216,3 +216,11 @@ The next priorities are:
 | R-076 | Backup may include caches or unnecessary large files | Medium | Mitigated | A Restic exclude policy was created. |
 | R-077 | Backup may accidentally include private keys or tokens | High | Partially mitigated | Exclude patterns were defined, but backup paths must still be reviewed manually. |
 | R-078 | Restic password storage strategy not defined | High | Open | Sensitive backups should wait until password handling is defined. |
+
+## Restic Selected Directory Backup Test Results
+
+| ID | Risk | Severity | Status | Notes |
+|---|---|---|---|---|
+| R-079 | Restic exclude policy may fail to exclude private project data | High | Mitigated | Selected-directory restore test confirmed private/ was excluded. |
+| R-080 | Restic backup may include Git internals unnecessarily | Low | Mitigated | Selected-directory restore test confirmed .git/ was excluded. |
+| R-081 | Backup restore may not preserve expected project structure | Medium | Mitigated | README.md, docs/, and backup policy files restored successfully. |

@@ -73,3 +73,15 @@ wireguard/*.conf
 # Project private raw evidence
 private/raw
 private/raw/*
+
+# Git internals
+.git
+*/.git
+.git/*
+*/.git/*
+
+# Project private data
+private
+private/*
+*/private
+*/private/*

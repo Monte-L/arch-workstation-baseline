@@ -467,3 +467,24 @@ Completed:
 Next recommended step:
 
 Run a selected-directory Restic backup test using the exclude file.
+
+## Phase 2E Update - Selected Directory Restic Backup Test
+
+A selected-directory encrypted Restic backup test was completed.
+
+Results:
+
+| Item | Status |
+|---|---|
+| Real project directory backed up | completed |
+| Restic exclude file used | completed |
+| Restore into /tmp | completed |
+| README restore validation | passed |
+| docs restore validation | passed |
+| backup policy restore validation | passed |
+| private/ exclusion validation | passed |
+| .git/ exclusion validation | passed |
+
+Next recommended step:
+
+Define password storage strategy before backing up sensitive private data.
