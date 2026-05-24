@@ -12,8 +12,8 @@ During the VPN-active DNS test, the ProtonVPN WireGuard interface was detected.
 
 | Item | Result |
 |---|---|
-| VPN interface | protonch |
-| Public route decision | via protonch |
+| VPN interface | vpn0 |
+| Public route decision | via vpn0 |
 | VPN routing table | 51820 |
 | systemd-resolved | disabled / inactive |
 | resolv.conf generator | resolvconf |
@@ -49,7 +49,7 @@ This suggests that DNS behavior changes depending on VPN state or resolver manag
 With ProtonVPN active:
 
 - VPN interface was detected
-- public route decision used protonch
+- public route decision used vpn0
 - policy routing table 51820 was used
 - Quad9 was detected directly in /etc/resolv.conf
 
@@ -96,7 +96,7 @@ A VPN-off DNS behavior review was performed after disabling the ProtonVPN WireGu
 
 | State | Public Route | Quad9 Direct Detection | Assessment |
 |---|---|---|---|
-| VPN active | via protonch / table 51820 | detected | Preferred state |
+| VPN active | via vpn0 / table 51820 | detected | Preferred state |
 | VPN inactive | via Wi-Fi interface | not detected | Requires review |
 
 ## Current DNS Assessment

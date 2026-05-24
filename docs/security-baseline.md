@@ -72,7 +72,7 @@ Since sshd is not currently active, Fail2ban is prepared for future SSH use but 
 
 ProtonVPN through WireGuard was tested.
 
-The active interface was detected as protonch.
+The active interface was detected as vpn0.
 
 Although the main routing table showed Wi-Fi as the default route, policy routing selected the VPN interface for public IPv4 traffic.
 

@@ -12,7 +12,7 @@
 - Reviewed network configuration.
 - Verified NetworkManager DNS handling.
 - Tested ProtonVPN WireGuard routing.
-- Confirmed VPN policy routing through interface protonch.
+- Confirmed VPN policy routing through interface vpn0.
 - Enabled and validated UFW.
 - Removed unnecessary inbound firewall rules.
 - Confirmed no explicit inbound allow rules remain.
@@ -133,7 +133,7 @@ Remaining package review items are Go and tor-browser-alpha-bin.
 ### Completed
 
 - Tested DNS behavior with ProtonVPN active.
-- Confirmed VPN-active public route through protonch table 51820.
+- Confirmed VPN-active public route through vpn0 table 51820.
 - Confirmed Quad9 direct detection during VPN-active test.
 - Tested DNS behavior with ProtonVPN inactive.
 - Confirmed VPN-off public route through Wi-Fi.

@@ -12,7 +12,7 @@ Raw VPN, DNS, and routing outputs are stored locally under private/raw/ and must
 |---|---|
 | VPN provider | ProtonVPN |
 | VPN technology | WireGuard |
-| Active VPN interface | protonch |
+| Active VPN interface | vpn0 |
 
 ## VPN State During Active Test
 
@@ -21,13 +21,13 @@ During the active VPN test, the ProtonVPN WireGuard interface was detected and t
 | Item | Status |
 |---|---|
 | VPN interface detected | Yes |
-| Interface name | protonch |
+| Interface name | vpn0 |
 | Handshake observed | Yes |
 | Data transfer observed | Yes |
 | Allowed IPs | 0.0.0.0/0 |
 | Policy routing detected | Yes |
 | VPN routing table | 51820 |
-| Public IPv4 route decision | Via protonch |
+| Public IPv4 route decision | Via vpn0 |
 
 ## Routing Behavior
 
@@ -37,7 +37,7 @@ However, policy routing rules are present, and the route decision for a public I
 
 Observed sanitized route decision:
 
-- dev protonch
+- dev vpn0
 - table 51820
 
 This indicates that the VPN is active and that public traffic is being routed through the ProtonVPN WireGuard interface using policy routing.
@@ -60,7 +60,7 @@ A direct check against /etc/resolv.conf did not detect Quad9 public resolver add
 
 VPN routing appears to be working correctly during the active VPN test.
 
-The workstation uses ProtonVPN through a WireGuard interface named protonch.
+The workstation uses ProtonVPN through a WireGuard interface named vpn0.
 
 Although the main routing table shows Wi-Fi as the default route, policy routing sends public IPv4 traffic through the VPN interface.
 
@@ -117,8 +117,8 @@ Findings:
 
 | Item | Result |
 |---|---|
-| VPN interface | protonch |
-| Public route decision | via protonch |
+| VPN interface | vpn0 |
+| Public route decision | via vpn0 |
 | VPN routing table | 51820 |
 | systemd-resolved | disabled / inactive |
 | resolv.conf generator | resolvconf |

@@ -8,7 +8,7 @@ This document tracks security, privacy, operational, and configuration risks ide
 
 | ID | Risk | Severity | Status | Notes |
 |---|---|---|---|---|
-| R-001 | VPN routing required validation | Medium | Mitigated | Active VPN test confirmed ProtonVPN WireGuard interface protonch and public IPv4 route decision through VPN policy table 51820. |
+| R-001 | VPN routing required validation | Medium | Mitigated | Active VPN test confirmed ProtonVPN WireGuard interface vpn0 and public IPv4 route decision through VPN policy table 51820. |
 | R-002 | Quad9 DNS not detected directly in /etc/resolv.conf | Medium | Open | DNS is managed by NetworkManager. Need to confirm whether DNS is handled by Wi-Fi, VPN, Quad9, or another resolver. |
 | R-003 | Raw network and system outputs may contain sensitive information | High | Mitigated | Raw outputs are stored under private/raw/, and private/ is excluded through .gitignore. |
 | R-004 | Dotfiles may contain private paths, usernames, tokens, or machine-specific data | High | Open | Dotfiles must be reviewed before being copied into the public project structure. |

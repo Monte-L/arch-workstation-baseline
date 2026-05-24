@@ -17,8 +17,8 @@ Raw post-reboot command outputs are stored locally under private/raw/ and must n
 | docker.socket | disabled / inactive |
 | containerd.service | disabled / inactive |
 | NetworkManager-wait-online.service | disabled / inactive |
-| VPN interface | protonch active after workaround |
-| Public route decision | via protonch table 51820 |
+| VPN interface | vpn0 active after workaround |
+| Public route decision | via vpn0 table 51820 |
 | Quad9 DNS | detected directly in /etc/resolv.conf |
 
 ## Security Services
@@ -53,9 +53,9 @@ After using the helper, the VPN interface became active and public route decisio
 
 | Item | Result |
 |---|---|
-| VPN interface | protonch |
+| VPN interface | vpn0 |
 | Route table | 51820 |
-| Public route | via protonch |
+| Public route | via vpn0 |
 | DNS | Quad9 detected |
 
 ## Current Assessment
