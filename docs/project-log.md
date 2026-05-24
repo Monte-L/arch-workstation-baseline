@@ -538,3 +538,19 @@ Private backup planning has started.
 No sensitive backup has been executed yet.
 
 The next step is to choose a small reviewed private path for a controlled encrypted backup test.
+
+## Persistent Kill Switch Post-Reboot Validation
+
+### Completed
+
+- Rebooted with persistent UFW kill switch rules active.
+- Confirmed ordinary web traffic did not work before VPN activation.
+- Started VPN manually using the NetworkManager helper.
+- Confirmed internet access returned after VPN activation.
+- Confirmed public IP path changed to VPN after activation.
+
+### Result
+
+Persistent kill switch behavior passed post-reboot validation.
+
+VPN autoconnect is not enabled yet.
