@@ -1,23 +1,21 @@
 # Arch Linux Secure Workstation Baseline
 
-## Overview
+This repository documents a privacy-oriented Arch Linux workstation baseline focused on defensive configuration, service review, firewall validation, VPN/DNS behavior, sanitized dotfiles, backup planning, and operational documentation.
 
-This project documents the configuration, security baseline, service review, VPN/DNS behavior, and sanitized dotfiles of a personal Arch Linux workstation.
+The project is based on a real personal workstation and was organized as a public portfolio project. Sensitive files, private keys, VPN configuration files, tokens, passwords, local caches, and raw private evidence are intentionally excluded.
 
-The goal is to build a clean, reproducible, and well-documented Linux workstation environment focused on:
+## Project Goals
 
-- system transparency
-- secure defaults
-- firewall validation
-- VPN and DNS review
-- service minimization
-- dotfile organization
-- private data separation
-- practical infrastructure documentation
-
-This is not intended to be a fully hardened enterprise workstation.
-
-It is a personal learning and portfolio project focused on understanding, documenting, and improving a real Linux environment step by step.
+- Document a clean Arch Linux workstation baseline
+- Review running services and reduce unnecessary exposure
+- Validate firewall behavior with UFW
+- Review SSH exposure and Fail2ban readiness
+- Validate VPN routing and DNS behavior
+- Plan and test VPN leak protection / kill switch behavior
+- Separate public dotfiles from private application data
+- Document backup and restore strategy
+- Preserve a reproducible technical reference for future rebuilds
+- Present the project as a defensive Linux/security portfolio artifact
 
 ## Environment
 
@@ -33,144 +31,70 @@ It is a personal learning and portfolio project focused on understanding, docume
 | Firewall | UFW |
 | Intrusion Prevention | Fail2ban |
 | VPN | WireGuard-based ProtonVPN setup |
-| DNS | NetworkManager / resolvconf reviewed, Quad9 observed during VPN-active state |
+| DNS | Quad9 policy reviewed and validated |
 
-## Current Baseline Status
+## Current Operating Model
 
-| Area | Status |
-|---|---|
-| System inventory | Documented |
-| Storage and graphics | Documented |
-| Network baseline | Documented |
-| VPN routing | Validated through policy routing |
-| DNS behavior | Documented for VPN-on and VPN-off states |
-| Firewall | Active with default deny incoming |
-| Inbound firewall rules | None |
-| SSH service | Disabled and inactive |
-| Fail2ban | Enabled and active |
-| Docker | Installed but disabled from autostart |
-| containerd | Disabled and inactive during normal use |
-| Dotfiles | Selected and sanitized |
-| Post-reboot validation | Completed |
-| Repository safety review | In progress |
+The current validated model is:
+
+```text
+Wi-Fi connects automatically
+   ↓
+VPN starts automatically through NetworkManager
+   ↓
+UFW blocks ordinary outbound traffic outside the VPN
+   ↓
+DNS uses Quad9
+   ↓
+Rollback remains available through local helper scripts
+```
 
 ## Security Baseline Highlights
 
 ### Firewall
 
-UFW is active and enabled.
-
-Current policy:
-
-| Direction | Policy |
-|---|---|
-| Incoming | Deny |
-| Outgoing | Allow |
-| Routed | Deny |
-
-No explicit inbound allow rules remain.
-
-Previously open inbound rules for SSH, WireGuard-style traffic, and a development port were removed.
+UFW is active with a default-deny incoming posture. No explicit inbound allow rules remain in the current baseline.
 
 ### SSH
 
-The SSH daemon is disabled and inactive.
+The SSH daemon is disabled and inactive. SSH is not exposed through the firewall.
 
-SSH is not exposed through the firewall.
-
-If SSH is enabled in the future, it should use:
-
-- key-based authentication
-- disabled root login
-- disabled password login where possible
-- restricted firewall source rules
-- active Fail2ban protection
+If SSH is enabled in the future, it should use key-based authentication, disabled root login, restricted firewall source rules, and Fail2ban protection.
 
 ### Fail2ban
 
-Fail2ban is enabled and active.
-
-The sshd jail is configured and ready for future SSH hardening, although SSH is not currently exposed.
+Fail2ban is enabled and active. The SSH jail is prepared for future SSH hardening, although SSH is not currently exposed.
 
 ### Docker
 
-Docker remains installed for infrastructure labs and development work.
-
-However, Docker is no longer started automatically at boot.
-
-Current Docker/container runtime state:
-
-| Service | State |
-|---|---|
-| docker.service | disabled / inactive |
-| docker.socket | disabled / inactive |
-| containerd.service | disabled / inactive |
-
-Docker can be started manually when needed for lab work.
+Docker remains installed for lab and development work, but it is disabled from automatic startup. Docker and containerd can be started manually only when needed.
 
 ### VPN and DNS
 
-VPN routing was validated through policy routing.
+VPN routing and DNS behavior were reviewed across VPN-on and VPN-off states. The project documents a NetworkManager-managed WireGuard direction, Quad9 DNS behavior, and VPN leak-protection planning.
 
-The public route decision selected the VPN interface placeholder used in this public repository:
+## Completed Work
 
-| Item | Result |
-|---|---|
-| VPN interface placeholder | vpn0 |
-| Policy routing table | 51820 |
-| VPN-active route | via vpn0 |
-| VPN-off route | via Wi-Fi |
-| Quad9 with VPN active | detected |
-| Quad9 with VPN off | detected after DNS policy update |
-
-DNS behavior differs between VPN-on and VPN-off states.
-
-A temporary VPN startup workaround is documented. The long-term preferred direction is to evaluate a NetworkManager-managed WireGuard profile with clear DNS policy and VPN leak protection.
-
-## Documentation
-
-| Document | Purpose |
-|---|---|
-| docs/system-inventory.md | Sanitized system and hardware inventory |
-| docs/security-baseline.md | Overall workstation security posture |
-| docs/network-baseline.md | Network interface and routing baseline |
-| docs/vpn-dns-baseline.md | VPN routing and DNS baseline |
-| docs/dns-behavior-review.md | VPN-on and VPN-off DNS comparison |
-| docs/dns-policy.md | Defined DNS behavior for VPN-on and VPN-off states |
-| docs/external-dns-leak-test.md | Sanitized external DNS leak test results |
-| docs/firewall-fail2ban.md | Firewall, listening services, SSH, and Fail2ban review |
-| docs/package-service-inventory.md | Package, AUR, service, and Docker review |
-| docs/enabled-services-review.md | Full enabled systemd services review |
-| docs/post-reboot-validation.md | Post-reboot validation results |
-| docs/dotfiles-guide.md | Dotfiles review and sanitization notes |
-| docs/risk-register.md | Security and operational risk register |
-| docs/project-log.md | Project progress log |
-| docs/repository-review.md | Pre-publication repository safety review |
-| docs/next-phase-plan.md | Future hardening roadmap and next phase plan |
-| docs/networkmanager-wireguard-evaluation.md | NetworkManager WireGuard migration evaluation |
-| docs/vpn-kill-switch-plan.md | VPN kill switch and leak protection planning |
-| docs/vpn-kill-switch-rollback.md | Rollback strategy before kill switch testing |
-| docs/vpn-kill-switch-test-design.md | Test-only VPN kill switch design |
-| docs/vpn-kill-switch-test-results.md | First manual VPN kill switch test results |
-| docs/persistent-kill-switch-validation.md | Persistent VPN kill switch post-reboot validation |
-| docs/vpn-autoconnect-validation.md | NetworkManager VPN autoconnect validation |
-| docs/final-workstation-status-review.md | Final workstation status review |
-| docs/local-helper-scripts.md | Local helper scripts used during VPN and firewall testing |
-| docs/restore-checklist.md | Workstation restore checklist |
-| docs/usb-backup-test.md | First USB backup and small restore test |
-| docs/restic-encrypted-backup-test.md | Encrypted USB backup and restore test using Restic |
-| docs/restic-backup-policy.md | Restic include/exclude backup policy |
-| docs/restic-selected-directory-backup-test.md | Selected-directory encrypted backup test using Restic excludes |
-| docs/restic-password-strategy.md | Restic password handling and recovery strategy |
-| backup/restic-private-include-template.txt | Public template for private backup include planning |
-| docs/private-backup-planning.md | Planning for future private encrypted backups |
-| backup/restic-excludes.txt | Restic exclude policy template |
-| docs/backup-restore-strategy.md | Backup and restore strategy |
-| docs/vpn-kill-switch-facts-summary.md | Sanitized facts for VPN kill switch design |
+- Sanitized public dotfiles
+- System and service inventory
+- Firewall baseline with UFW
+- Fail2ban validation
+- SSH exposure review
+- Docker autostart review
+- Network and routing baseline
+- VPN/DNS behavior review
+- NetworkManager VPN autoconnect validation
+- Persistent VPN kill switch testing
+- External DNS leak testing
+- Post-reboot validation
+- USB backup test
+- Restic encrypted backup test
+- Selected-directory restore testing
+- Emergency firewall rollback helper planning
 
 ## Dotfiles
 
-The dotfiles directory contains a sanitized subset of the workstation configuration.
+The repository includes a sanitized subset of workstation configuration.
 
 Included components:
 
@@ -195,75 +119,95 @@ The public dotfiles do not include:
 - tokens
 - passwords
 - raw command outputs
-- full home directory or full ~/.config dump
+- full home directory dumps
+- full `~/.config` dumps
+
+## Documentation Map
+
+Key documents:
+
+| Document | Purpose |
+|---|---|
+| `docs/system-inventory.md` | Sanitized system and hardware inventory |
+| `docs/security-baseline.md` | Workstation security posture |
+| `docs/network-baseline.md` | Network interface and routing baseline |
+| `docs/vpn-dns-baseline.md` | VPN routing and DNS baseline |
+| `docs/firewall-fail2ban.md` | Firewall, listening services, SSH, and Fail2ban review |
+| `docs/package-service-inventory.md` | Package, AUR, service, and Docker review |
+| `docs/enabled-services-review.md` | Enabled systemd services review |
+| `docs/dotfiles-guide.md` | Dotfiles review and sanitization notes |
+| `docs/risk-register.md` | Security and operational risk register |
+| `docs/vpn-kill-switch-plan.md` | VPN kill switch and leak protection planning |
+| `docs/persistent-kill-switch-validation.md` | Persistent VPN kill switch validation |
+| `docs/vpn-autoconnect-validation.md` | NetworkManager VPN autoconnect validation |
+| `docs/backup-restore-strategy.md` | Backup and restore strategy |
+| `docs/restic-encrypted-backup-test.md` | Encrypted backup and restore test |
+| `docs/restore-checklist.md` | Workstation restore checklist |
 
 ## Repository Safety
 
 This repository intentionally excludes local raw evidence and sensitive configuration.
 
-The private/ directory is used only for local collection and must not be uploaded.
+The `.gitignore` is designed to exclude:
 
-The .gitignore file excludes:
+```text
+private/
+*.key
+*.pem
+*.secret
+*.token
+.env
+*.conf with sensitive VPN data
+backup artifacts
+temporary files
+```
 
-- private/
-- key files
-- token files
-- secret files
-- environment files
-- WireGuard configuration files
-- backup and temporary files
+Before public updates, the repository should be checked with:
 
-Before public upload, the repository should be reviewed with:
+```bash
+git status
+git ls-files
+```
 
-- git status
-- git ls-files
-- critical sensitive pattern scan
-- private directory ignore check
+and reviewed for sensitive terms such as private keys, tokens, passwords, VPN configuration files, and raw personal command outputs.
 
-## Future Hardening Work
+## Skills Demonstrated
 
-Planned future work includes:
-
-1. Replace the temporary VPN startup workaround with a cleaner architecture.
-2. Evaluate a NetworkManager-managed WireGuard profile.
-3. Define a clear DNS policy.
-4. Evaluate VPN kill switch and leak protection.
-5. Perform external DNS leak testing.
-6. Build a backup and restore strategy.
-7. Review SSH hardening if remote access is needed later.
-8. Prepare the repository for public GitHub publication.
+- Arch Linux workstation administration
+- Linux service inventory and review
+- UFW firewall validation
+- Fail2ban validation
+- SSH exposure reduction
+- VPN routing and DNS behavior review
+- NetworkManager VPN autoconnect planning
+- VPN kill switch testing and rollback planning
+- Dotfile sanitization
+- Backup and restore testing
+- Restic encrypted backup planning
+- Technical documentation
+- Defensive security mindset
+- Operational risk tracking
 
 ## Project Status
 
-Initial Arch workstation baseline completed.
+The current baseline phase is complete.
 
-Current milestone: privacy-oriented workstation baseline validated.
+The workstation has a documented defensive operating model with automatic Wi-Fi connection, NetworkManager VPN autoconnect, UFW-based outbound protection outside the VPN, Quad9 DNS policy, rollback helpers, sanitized dotfiles, and backup/restore validation.
 
-Completed:
-
-- sanitized public dotfiles
-- system and service inventory
-- UFW baseline
-- Fail2ban validation
-- NetworkManager-managed WireGuard
-- VPN autoconnect
-- Quad9 DNS policy
-- external DNS leak testing
-- persistent VPN kill switch
-- post-reboot kill switch validation
-- USB backup test
-- Restic encrypted backup test
-- selected-directory restore testing
-- emergency firewall rollback helper
-
-Current operating model:
-
-- Wi-Fi connects automatically
-- VPN starts automatically through NetworkManager
-- UFW blocks ordinary outbound traffic outside the VPN
-- DNS uses Quad9
-- rollback remains available through local helper scripts
-
-Status: completed for current baseline phase.
+## Future Work
 
 Future work is optional and should be treated as advanced hardening or backup expansion.
+
+Possible next steps:
+
+- Expand backup automation
+- Improve restore drills
+- Review AppArmor or other mandatory access control options
+- Add auditd-style logging experiments
+- Further separate public documentation from private operational notes
+- Revisit disk encryption strategy during a future reinstall
+- Continue testing firewall-based VPN leak protection under more network scenarios
+
+## Portfolio Summary
+
+This project demonstrates the ability to review, document, and improve a real Linux workstation from a defensive infrastructure perspective. It shows practical skills in Linux administration, firewall validation, VPN/DNS review, service minimization, dotfile hygiene, backup planning, and public technical documentation.
